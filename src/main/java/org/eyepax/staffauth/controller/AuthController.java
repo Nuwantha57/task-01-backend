@@ -20,7 +20,7 @@ public class AuthController {
 
     private final String clientId = "65ggmh18gfb0rp0878jrtk9rjg";
     private final String clientSecret = "c0jhldbf269g7k5qlnj0iur2uescau8h5vdck6la6s4amdpo6vb";
-    private final String redirectUri = "http://localhost:3000";
+    private final String redirectUri = "http://localhost:3000/callback";
     private final String tokenEndpoint = "https://eu-north-1exi0aq7ov.auth.eu-north-1.amazoncognito.com/oauth2/token";
 
     @PostMapping("/auth/token")

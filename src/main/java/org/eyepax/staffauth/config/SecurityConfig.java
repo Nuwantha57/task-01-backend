@@ -43,8 +43,10 @@ public class SecurityConfig {
                 // Authorization
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/healthz").permitAll()
-                        .requestMatchers("/auth/**").permitAll()   // optional login endpoints
-                        .requestMatchers("/api/v1/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers("/api/v1/token-debug").permitAll() // For debugging
+                        .requestMatchers("/api/v1/admin/**").hasAnyRole("ADMIN")
+                        .requestMatchers("/api/v1/**").authenticated()
                         .anyRequest().authenticated()
                 )
                 // OIDC login for browser sessions
@@ -75,11 +77,29 @@ public class SecurityConfig {
     public JwtAuthenticationConverter jwtAuthenticationConverter() {
         JwtAuthenticationConverter converter = new JwtAuthenticationConverter();
         converter.setJwtGrantedAuthoritiesConverter(jwt -> {
+            System.out.println("=== JWT Authentication Converter ===");
+            System.out.println("JWT Claims: " + jwt.getClaims());
+
             var groups = jwt.getClaimAsStringList("cognito:groups");
-            if (groups == null) return List.<GrantedAuthority>of();
-            return groups.stream()
-                    .map(g -> new SimpleGrantedAuthority("ROLE_" + g.toUpperCase()))
+            System.out.println("Cognito groups: " + groups);
+
+            if (groups == null) {
+                System.out.println("No groups found, returning empty authorities");
+                return List.<GrantedAuthority>of();
+            }
+
+            List<GrantedAuthority> authorities = groups.stream()
+                    .map(g -> {
+                        String role = "ROLE_" + g.toUpperCase();
+                        System.out.println("Mapping group '" + g + "' to role '" + role + "'");
+                        return new SimpleGrantedAuthority(role);
+                    })
                     .collect(Collectors.toList());
+
+            System.out.println("Final authorities: " + authorities);
+            System.out.println("=== JWT Authentication Converter Complete ===");
+
+            return authorities;
         });
         return converter;
     }
@@ -89,9 +109,10 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(List.of("http://localhost:3000")); // frontend URL
-        config.setAllowedMethods(Arrays.asList("GET", "POST", "PATCH", "DELETE", "OPTIONS"));
-        config.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-Requested-With"));
+        config.setAllowedMethods(Arrays.asList("GET", "POST", "PATCH", "DELETE", "OPTIONS", "PUT"));
+        config.setAllowedHeaders(Arrays.asList("*")); // Allow all headers
         config.setAllowCredentials(true);
+        config.setExposedHeaders(Arrays.asList("Authorization"));
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);

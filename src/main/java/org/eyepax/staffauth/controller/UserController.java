@@ -24,71 +24,121 @@ public class UserController {
 
     @GetMapping("/me")
     public ResponseEntity<?> getCurrentUser(@AuthenticationPrincipal Jwt jwt, HttpServletRequest request) {
-        String cognitoId = jwt.getClaimAsString("sub");
-        String email = jwt.getClaimAsString("email");
-        String name = jwt.getClaimAsString("name");
-        String ipAddress = request.getRemoteAddr();
+        try {
+            System.out.println("=== /api/v1/me called ===");
 
-        // 1️⃣ Try to find existing user
-        AppUser user = userRepository.findByCognitoId(cognitoId).orElse(null);
+            if (jwt == null) {
+                System.err.println("ERROR: JWT is null - token not authenticated");
+                return ResponseEntity.status(401).body(Map.of("error", "No authentication token"));
+            }
 
-        if (user == null) {
-            // 2️⃣ Create new user
-            user = new AppUser();
-            user.setCognitoId(cognitoId);
-            user.setEmail(email);
-            user.setDisplayName(name != null ? name : email);
-            user.setLocale("en-US");
-            user = userRepository.save(user);
-        } else {
-            // 3️⃣ Update user info if changed
-            boolean updated = false;
-            if (!Objects.equals(user.getEmail(), email)) {
+            String cognitoId = jwt.getClaimAsString("sub");
+            String email = jwt.getClaimAsString("email");
+            String name = jwt.getClaimAsString("name");
+            String ipAddress = request.getRemoteAddr();
+
+            System.out.println("Cognito ID: " + cognitoId);
+            System.out.println("Email: " + email);
+            System.out.println("Name: " + name);
+            System.out.println("IP: " + ipAddress);
+
+            // 1️⃣ Try to find existing user
+            AppUser user = userRepository.findByCognitoId(cognitoId).orElse(null);
+
+            if (user == null) {
+                // 2️⃣ Create new user
+                System.out.println("Creating new user for: " + email);
+                user = new AppUser();
+                user.setCognitoId(cognitoId);
                 user.setEmail(email);
-                updated = true;
+                user.setDisplayName(name != null ? name : email);
+                user.setLocale("en-US");
+                user = userRepository.save(user);
+                System.out.println("User created with ID: " + user.getId());
+            } else {
+                System.out.println("User found with ID: " + user.getId());
+                // 3️⃣ Update user info if changed
+                boolean updated = false;
+                if (email != null && !Objects.equals(user.getEmail(), email)) {
+                    user.setEmail(email);
+                    updated = true;
+                }
+                if (name != null && !Objects.equals(user.getDisplayName(), name)) {
+                    user.setDisplayName(name);
+                    updated = true;
+                }
+                if (updated) {
+                    userRepository.save(user);
+                    System.out.println("User updated");
+                }
             }
-            if (name != null && !Objects.equals(user.getDisplayName(), name)) {
-                user.setDisplayName(name);
-                updated = true;
+
+            // 4️⃣ Log login event
+            auditService.logLogin(user, ipAddress);
+
+            // 5️⃣ Get roles from JWT
+            List<String> cognitoGroups = jwt.getClaimAsStringList("cognito:groups");
+            List<String> roles = new ArrayList<>();
+
+            if (cognitoGroups != null) {
+                System.out.println("Cognito groups: " + cognitoGroups);
+                roles = cognitoGroups;
+            } else {
+                System.out.println("No cognito:groups claim found in token");
             }
-            if (updated) userRepository.save(user);
+
+            // 6️⃣ Return user data
+            Map<String, Object> response = Map.of(
+                    "id", user.getId(),
+                    "email", user.getEmail(),
+                    "displayName", user.getDisplayName(),
+                    "locale", user.getLocale(),
+                    "roles", roles
+            );
+
+            System.out.println("Returning user data: " + response);
+            System.out.println("=== /api/v1/me completed successfully ===");
+
+            return ResponseEntity.ok(response);
+
+        } catch (Exception e) {
+            System.err.println("ERROR in /api/v1/me: " + e.getMessage());
+            e.printStackTrace();
+            return ResponseEntity.status(500).body(Map.of("error", "Internal server error: " + e.getMessage()));
         }
-
-        // 4️⃣ Log login event
-        auditService.logLogin(user, ipAddress);
-
-        // 5️⃣ Return user data
-        List<String> roles = jwt.getClaimAsStringList("cognito:groups");
-        if (roles == null) roles = List.of();
-
-        return ResponseEntity.ok(Map.of(
-                "id", user.getId(),
-                "email", user.getEmail(),
-                "displayName", user.getDisplayName(),
-                "locale", user.getLocale(),
-                "roles", roles
-        ));
-
     }
 
     @PatchMapping("/me")
     public ResponseEntity<?> updateProfile(@AuthenticationPrincipal Jwt jwt, @RequestBody Map<String, String> updates) {
-        String cognitoId = jwt.getClaim("sub");
+        try {
+            if (jwt == null) {
+                return ResponseEntity.status(401).body(Map.of("error", "No authentication token"));
+            }
 
-        AppUser user = userRepository.findByCognitoId(cognitoId)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+            String cognitoId = jwt.getClaim("sub");
 
-        if (updates.containsKey("displayName"))
-            user.setDisplayName(updates.get("displayName"));
-        if (updates.containsKey("locale"))
-            user.setLocale(updates.get("locale"));
+            AppUser user = userRepository.findByCognitoId(cognitoId)
+                    .orElseThrow(() -> new RuntimeException("User not found"));
 
-        userRepository.save(user);
-        return ResponseEntity.ok(user);
+            if (updates.containsKey("displayName"))
+                user.setDisplayName(updates.get("displayName"));
+            if (updates.containsKey("locale"))
+                user.setLocale(updates.get("locale"));
+
+            userRepository.save(user);
+            return ResponseEntity.ok(user);
+        } catch (Exception e) {
+            System.err.println("ERROR in PATCH /api/v1/me: " + e.getMessage());
+            e.printStackTrace();
+            return ResponseEntity.status(500).body(Map.of("error", e.getMessage()));
+        }
     }
 
     @GetMapping("/token-debug")
     public Map<String, Object> debug(@AuthenticationPrincipal Jwt jwt) {
+        if (jwt == null) {
+            return Map.of("error", "No JWT token found");
+        }
         return jwt.getClaims();
     }
 }
