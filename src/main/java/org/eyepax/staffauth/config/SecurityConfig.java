@@ -79,15 +79,15 @@ public class SecurityConfig {
         converter.setJwtGrantedAuthoritiesConverter(jwt -> {
             System.out.println("=== JWT Authentication Converter ===");
             System.out.println("JWT Claims: " + jwt.getClaims());
-
+            
             var groups = jwt.getClaimAsStringList("cognito:groups");
             System.out.println("Cognito groups: " + groups);
-
+            
             if (groups == null) {
                 System.out.println("No groups found, returning empty authorities");
                 return List.<GrantedAuthority>of();
             }
-
+            
             List<GrantedAuthority> authorities = groups.stream()
                     .map(g -> {
                         String role = "ROLE_" + g.toUpperCase();
@@ -95,23 +95,29 @@ public class SecurityConfig {
                         return new SimpleGrantedAuthority(role);
                     })
                     .collect(Collectors.toList());
-
+            
             System.out.println("Final authorities: " + authorities);
             System.out.println("=== JWT Authentication Converter Complete ===");
-
+            
             return authorities;
         });
         return converter;
     }
 
-    // CORS configuration for frontend
+    // CORS configuration for frontend and mobile
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:3000")); // frontend URL
+        // Allow both web and mobile origins
+        config.setAllowedOrigins(Arrays.asList(
+            "http://localhost:3000",  // React web app
+            "http://10.0.2.2:3000",   // Android emulator accessing host
+            "http://localhost:*",      // Flutter mobile
+            "*"                        // Allow all for development (REMOVE IN PRODUCTION!)
+        ));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PATCH", "DELETE", "OPTIONS", "PUT"));
         config.setAllowedHeaders(Arrays.asList("*")); // Allow all headers
-        config.setAllowCredentials(true);
+        config.setAllowCredentials(false); // Set to false when using "*" origin
         config.setExposedHeaders(Arrays.asList("Authorization"));
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
