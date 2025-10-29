@@ -2,8 +2,10 @@ package org.eyepax.staffauth.controller;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -51,11 +53,44 @@ public class AdminController {
     private LoginAuditRepository loginAuditRepository;
 
     @GetMapping("/users")
-    public ResponseEntity<Page<AppUser>> listUsers(
+    @Transactional(readOnly = true)
+    public ResponseEntity<?> listUsers(
             @RequestParam(defaultValue = "") String query,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size) {
-        return ResponseEntity.ok(userRepository.findAll(PageRequest.of(page, size)));
+        
+        Page<AppUser> usersPage = userRepository.findAll(PageRequest.of(page, size));
+        
+        // Create a custom response that includes roles
+        List<Map<String, Object>> usersWithRoles = usersPage.getContent().stream()
+            .map(user -> {
+                Map<String, Object> userMap = new HashMap<>();
+                userMap.put("id", user.getId());
+                userMap.put("email", user.getEmail());
+                userMap.put("displayName", user.getDisplayName());
+                userMap.put("cognitoId", user.getCognitoId());
+                userMap.put("locale", user.getLocale());
+                
+                // Fetch roles for this user
+                List<String> roles = userRoleRepository.findAllByUserId(user.getId())
+                    .stream()
+                    .map(ur -> ur.getRole().getName())
+                    .collect(Collectors.toList());
+                userMap.put("roles", roles);
+                
+                return userMap;
+            })
+            .collect(Collectors.toList());
+        
+        // Create paginated response
+        Map<String, Object> response = new HashMap<>();
+        response.put("content", usersWithRoles);
+        response.put("totalPages", usersPage.getTotalPages());
+        response.put("totalElements", usersPage.getTotalElements());
+        response.put("size", usersPage.getSize());
+        response.put("number", usersPage.getNumber());
+        
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/users/{id}")
