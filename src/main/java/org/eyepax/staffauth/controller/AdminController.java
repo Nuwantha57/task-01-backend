@@ -23,6 +23,7 @@ import org.eyepax.staffauth.repository.AppUserRepository;
 import org.eyepax.staffauth.repository.LoginAuditRepository;
 import org.eyepax.staffauth.repository.RoleRepository;
 import org.eyepax.staffauth.repository.UserRoleRepository;
+import org.eyepax.staffauth.service.AuditService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -35,6 +36,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import jakarta.servlet.http.HttpServletRequest;
+
 
 @RestController
 @RequestMapping("/api/v1/admin")
@@ -51,6 +55,9 @@ public class AdminController {
 
     @Autowired
     private LoginAuditRepository loginAuditRepository;
+
+    @Autowired
+    private AuditService auditService;
 
     @GetMapping("/users")
     @Transactional(readOnly = true)
@@ -103,7 +110,10 @@ public class AdminController {
     
     @PatchMapping(value = "/users/{id}/roles", consumes = "application/json")
     @Transactional
-    public ResponseEntity<ApiResponse<?>> updateUserRoles(@PathVariable Long id, @RequestBody(required = false) UpdateUserRolesRequest request) {
+    public ResponseEntity<ApiResponse<?>> updateUserRoles(
+            @PathVariable Long id, 
+            @RequestBody(required = false) UpdateUserRolesRequest request,
+            HttpServletRequest httpRequest) { // Add HttpServletRequest parameter
         try {
             if (request == null) {
                 return ResponseEntity.badRequest().body(ApiResponse.error("Request body cannot be null"));
@@ -118,46 +128,69 @@ public class AdminController {
             List<String> roleNames = request.getRoles();
             if (roleNames == null || roleNames.isEmpty()) {
                 return ResponseEntity.badRequest().body(ApiResponse.error("Roles list cannot be empty"));
-            }        // Get existing roles
-        List<UserRole> currentUserRoles = userRoleRepository.findAllByUserId(id);
-        Set<String> newRoles = new HashSet<>(roleNames);
-        Set<String> existingRoles = currentUserRoles.stream()
-                .map(ur -> ur.getRole().getName())
-                .collect(Collectors.toSet());
-
-        // Delete removed roles
-        currentUserRoles.forEach(userRole -> {
-            if (!newRoles.contains(userRole.getRole().getName())) {
-                userRoleRepository.deleteById(userRole.getId());
             }
-        });
 
-        // Add new roles
-        for (String roleName : newRoles) {
-            if (!existingRoles.contains(roleName)) {
-                Role role = roleRepository.findByName(roleName);
-                if (role == null) {
-                    role = new Role();
-                    role.setName(roleName);
-                    role = roleRepository.save(role);
+            // Get existing roles BEFORE making changes
+            List<UserRole> currentUserRoles = userRoleRepository.findAllByUserId(id);
+            List<String> oldRoles = currentUserRoles.stream()
+                    .map(ur -> ur.getRole().getName())
+                    .collect(Collectors.toList());
+            
+            Set<String> newRoles = new HashSet<>(roleNames);
+            Set<String> existingRoles = new HashSet<>(oldRoles);
+
+            // Delete removed roles
+            currentUserRoles.forEach(userRole -> {
+                if (!newRoles.contains(userRole.getRole().getName())) {
+                    userRoleRepository.deleteById(userRole.getId());
                 }
-                UserRole userRole = new UserRole();
-                userRole.setUser(user);
-                userRole.setRole(role);
-                userRoleRepository.save(userRole);
+            });
+
+            // Add new roles
+            for (String roleName : newRoles) {
+                if (!existingRoles.contains(roleName)) {
+                    Role role = roleRepository.findByName(roleName);
+                    if (role == null) {
+                        role = new Role();
+                        role.setName(roleName);
+                        role = roleRepository.save(role);
+                    }
+                    UserRole userRole = new UserRole();
+                    userRole.setUser(user);
+                    userRole.setRole(role);
+                    userRoleRepository.save(userRole);
+                }
             }
-        }
 
             // Get updated roles
             List<String> updatedRoles = userRoleRepository.findAllByUserId(id).stream()
                     .map(ur -> ur.getRole().getName())
                     .collect(Collectors.toList());
 
+            // Log the role change to audit table
+            String ipAddress = getClientIpAddress(httpRequest);
+            auditService.logRoleChange(user, oldRoles, updatedRoles, ipAddress);
+
             UpdateUserRolesResponse response = new UpdateUserRolesResponse(id, updatedRoles);
             return ResponseEntity.ok(ApiResponse.success(response));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(ApiResponse.error("Error updating roles: " + e.getMessage()));
         }
+    }
+
+    // Helper method to extract IP address
+    private String getClientIpAddress(HttpServletRequest request) {
+        String xForwardedFor = request.getHeader("X-Forwarded-For");
+        if (xForwardedFor != null && !xForwardedFor.isEmpty()) {
+            return xForwardedFor.split(",")[0].trim();
+        }
+        
+        String xRealIp = request.getHeader("X-Real-IP");
+        if (xRealIp != null && !xRealIp.isEmpty()) {
+            return xRealIp;
+        }
+        
+        return request.getRemoteAddr();
     }
 
 
