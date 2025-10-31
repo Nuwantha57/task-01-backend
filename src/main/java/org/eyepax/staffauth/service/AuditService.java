@@ -17,6 +17,13 @@ public class AuditService {
     }
 
     public void logLogin(AppUser user, String ipAddress) {
+        if (user == null) {
+            throw new IllegalArgumentException("User cannot be null");
+        }
+        if (ipAddress == null) {
+            throw new IllegalArgumentException("IP address cannot be null");
+        }
+        
         LoginAudit audit = LoginAudit.builder()
                 .user(user)
                 .eventType("LOGIN")

@@ -1,0 +1,510 @@
+---- AspectJ Properties ---
+AspectJ Compiler 1.9.19 built on Wednesday Dec 21, 2022 at 06:57:22 PST
+---- Dump Properties ---
+Dump file: ajcore.20251031.131159.281.txt
+Dump reason: abort
+Dump on exception: true
+Dump at exit condition: abort
+---- System Properties ---
+java.specification.version=21
+sun.cpu.isalist=amd64
+sun.jnu.encoding=Cp1252
+java.class.path=C:\Intern_Project_Code\task-01-backend\target\test-classes;C:\Intern_Project_Code\task-01-backend\target\classes;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.5.6\spring-boot-starter-web-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-starter\3.5.6\spring-boot-starter-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot\3.5.6\spring-boot-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.5.6\spring-boot-autoconfigure-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.5.6\spring-boot-starter-logging-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\ch\qos\logback\logback-classic\1.5.18\logback-classic-1.5.18.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\ch\qos\logback\logback-core\1.5.18\logback-core-1.5.18.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.24.3\log4j-to-slf4j-2.24.3.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apache\logging\log4j\log4j-api\2.24.3\log4j-api-2.24.3.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\slf4j\jul-to-slf4j\2.0.17\jul-to-slf4j-2.0.17.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\yaml\snakeyaml\2.4\snakeyaml-2.4.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.5.6\spring-boot-starter-json-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.19.2\jackson-databind-2.19.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.19.2\jackson-annotations-2.19.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.19.2\jackson-core-2.19.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.19.2\jackson-datatype-jdk8-2.19.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.19.2\jackson-datatype-jsr310-2.19.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.19.2\jackson-module-parameter-names-2.19.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.5.6\spring-boot-starter-tomcat-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.46\tomcat-embed-core-10.1.46.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.46\tomcat-embed-websocket-10.1.46.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-web\6.2.11\spring-web-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-beans\6.2.11\spring-beans-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\micrometer\micrometer-observation\1.15.4\micrometer-observation-1.15.4.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\micrometer\micrometer-commons\1.15.4\micrometer-commons-1.15.4.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-webmvc\6.2.11\spring-webmvc-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-context\6.2.11\spring-context-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-expression\6.2.11\spring-expression-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-starter-security\3.5.6\spring-boot-starter-security-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-aop\6.2.11\spring-aop-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\security\spring-security-config\6.5.5\spring-security-config-6.5.5.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\security\spring-security-web\6.5.5\spring-security-web-6.5.5.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.5.6\spring-boot-starter-data-jpa-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.5.6\spring-boot-starter-jdbc-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\zaxxer\HikariCP\6.3.3\HikariCP-6.3.3.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-jdbc\6.2.11\spring-jdbc-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\hibernate\orm\hibernate-core\6.6.29.Final\hibernate-core-6.6.29.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\hibernate\common\hibernate-commons-annotations\7.0.3.Final\hibernate-commons-annotations-7.0.3.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\smallrye\jandex\3.2.0\jandex-3.2.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\fasterxml\classmate\1.7.0\classmate-1.7.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\net\bytebuddy\byte-buddy\1.17.7\byte-buddy-1.17.7.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.5\jaxb-runtime-4.0.5.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\glassfish\jaxb\txw2\4.0.5\txw2-4.0.5.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\antlr\antlr4-runtime\4.13.0\antlr4-runtime-4.13.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\data\spring-data-jpa\3.5.4\spring-data-jpa-3.5.4.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\data\spring-data-commons\3.5.4\spring-data-commons-3.5.4.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-orm\6.2.11\spring-orm-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-tx\6.2.11\spring-tx-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-aspects\6.2.11\spring-aspects-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\aspectj\aspectjweaver\1.9.19\aspectjweaver-1.9.19.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-starter-validation\3.5.6\spring-boot-starter-validation-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.46\tomcat-embed-el-10.1.46.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.3.Final\hibernate-validator-8.0.3.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-starter-oauth2-client\3.5.6\spring-boot-starter-oauth2-client-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\security\spring-security-core\6.5.5\spring-security-core-6.5.5.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\security\spring-security-crypto\6.5.5\spring-security-crypto-6.5.5.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\security\spring-security-oauth2-client\6.5.5\spring-security-oauth2-client-6.5.5.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\nimbusds\oauth2-oidc-sdk\9.43.6\oauth2-oidc-sdk-9.43.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\nimbusds\content-type\2.2\content-type-2.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\nimbusds\lang-tag\1.7\lang-tag-1.7.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-starter-oauth2-resource-server\3.5.6\spring-boot-starter-oauth2-resource-server-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\postgresql\postgresql\42.7.7\postgresql-42.7.7.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\checkerframework\checker-qual\3.49.3\checker-qual-3.49.3.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\nimbusds\nimbus-jose-jwt\9.37\nimbus-jose-jwt-9.37.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\github\stephenc\jcip\jcip-annotations\1.0-1\jcip-annotations-1.0-1.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\security\spring-security-oauth2-resource-server\6.5.5\spring-security-oauth2-resource-server-6.5.5.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\security\spring-security-oauth2-core\6.5.5\spring-security-oauth2-core-6.5.5.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-core\6.2.11\spring-core-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-jcl\6.2.11\spring-jcl-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\security\spring-security-oauth2-jose\6.5.5\spring-security-oauth2-jose-6.5.5.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\thymeleaf\extras\thymeleaf-extras-springsecurity6\3.1.3.RELEASE\thymeleaf-extras-springsecurity6-3.1.3.RELEASE.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\thymeleaf\thymeleaf-spring6\3.1.3.RELEASE\thymeleaf-spring6-3.1.3.RELEASE.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\thymeleaf\thymeleaf\3.1.3.RELEASE\thymeleaf-3.1.3.RELEASE.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\attoparser\attoparser\2.0.7.RELEASE\attoparser-2.0.7.RELEASE.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\unbescape\unbescape\1.1.6.RELEASE\unbescape-1.1.6.RELEASE.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\slf4j\slf4j-api\2.0.17\slf4j-api-2.0.17.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\projectlombok\lombok\1.18.40\lombok-1.18.40.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\ses\2.20.0\ses-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\aws-query-protocol\2.20.0\aws-query-protocol-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\protocol-core\2.20.0\protocol-core-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\sdk-core\2.20.0\sdk-core-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\profiles\2.20.0\profiles-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\reactivestreams\reactive-streams\1.0.4\reactive-streams-1.0.4.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\auth\2.20.0\auth-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\eventstream\eventstream\1.0.1\eventstream-1.0.1.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\http-client-spi\2.20.0\http-client-spi-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\regions\2.20.0\regions-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\annotations\2.20.0\annotations-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\utils\2.20.0\utils-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\aws-core\2.20.0\aws-core-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\metrics-spi\2.20.0\metrics-spi-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\json-utils\2.20.0\json-utils-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\third-party-jackson-core\2.20.0\third-party-jackson-core-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\endpoints-spi\2.20.0\endpoints-spi-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\apache-client\2.20.0\apache-client-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apache\httpcomponents\httpcore\4.4.16\httpcore-4.4.16.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\netty-nio-client\2.20.0\netty-nio-client-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\netty\netty-codec-http\4.1.127.Final\netty-codec-http-4.1.127.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\netty\netty-codec-http2\4.1.127.Final\netty-codec-http2-4.1.127.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\netty\netty-codec\4.1.127.Final\netty-codec-4.1.127.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\netty\netty-transport\4.1.127.Final\netty-transport-4.1.127.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\netty\netty-resolver\4.1.127.Final\netty-resolver-4.1.127.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\netty\netty-common\4.1.127.Final\netty-common-4.1.127.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\netty\netty-buffer\4.1.127.Final\netty-buffer-4.1.127.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\netty\netty-handler\4.1.127.Final\netty-handler-4.1.127.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\netty\netty-transport-native-unix-common\4.1.127.Final\netty-transport-native-unix-common-4.1.127.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\netty\netty-transport-classes-epoll\4.1.127.Final\netty-transport-classes-epoll-4.1.127.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\sns\2.20.0\sns-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\cloudwatch\2.20.0\cloudwatch-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.5.6\spring-boot-starter-test-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-test\3.5.6\spring-boot-test-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.5.6\spring-boot-test-autoconfigure-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.4\jakarta.activation-api-2.1.4.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\net\minidev\json-smart\2.5.2\json-smart-2.5.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\net\minidev\accessors-smart\2.5.2\accessors-smart-2.5.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\ow2\asm\asm\9.7.1\asm-9.7.1.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\assertj\assertj-core\3.27.4\assertj-core-3.27.4.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\awaitility\awaitility\4.2.2\awaitility-4.2.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\hamcrest\hamcrest\3.0\hamcrest-3.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\mockito\mockito-core\5.17.0\mockito-core-5.17.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.7\byte-buddy-agent-1.17.7.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\mockito\mockito-junit-jupiter\5.17.0\mockito-junit-jupiter-5.17.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\skyscreamer\jsonassert\1.5.3\jsonassert-1.5.3.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-test\6.2.11\spring-test-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\xmlunit\xmlunit-core\2.10.4\xmlunit-core-2.10.4.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\security\spring-security-test\6.5.5\spring-security-test-6.5.5.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\rest-assured\rest-assured\5.4.0\rest-assured-5.4.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apache\groovy\groovy\4.0.28\groovy-4.0.28.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apache\groovy\groovy-xml\4.0.28\groovy-xml-4.0.28.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\commons-codec\commons-codec\1.18.0\commons-codec-1.18.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\rest-assured\json-path\5.5.6\json-path-5.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apache\groovy\groovy-json\4.0.28\groovy-json-4.0.28.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\rest-assured\rest-assured-common\5.5.6\rest-assured-common-5.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\rest-assured\xml-path\5.5.6\xml-path-5.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apache\commons\commons-lang3\3.17.0\commons-lang3-3.17.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\h2database\h2\2.3.232\h2-2.3.232.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\qameta\allure\allure-junit5\2.24.0\allure-junit5-2.24.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\qameta\allure\allure-junit-platform\2.24.0\allure-junit-platform-2.24.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\qameta\allure\allure-java-commons\2.24.0\allure-java-commons-2.24.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\qameta\allure\allure-model\2.24.0\allure-model-2.24.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\qameta\allure\allure-test-filter\2.24.0\allure-test-filter-2.24.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.12.2\junit-jupiter-api-5.12.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\junit\platform\junit-platform-commons\1.12.2\junit-platform-commons-1.12.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\junit\platform\junit-platform-launcher\1.12.2\junit-platform-launcher-1.12.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\junit\platform\junit-platform-engine\1.12.2\junit-platform-engine-1.12.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\qameta\allure\allure-rest-assured\2.24.0\allure-rest-assured-2.24.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\qameta\allure\allure-attachments\2.24.0\allure-attachments-2.24.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\freemarker\freemarker\2.3.34\freemarker-2.3.34.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\junit\jupiter\junit-jupiter\5.12.2\junit-jupiter-5.12.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.12.2\junit-jupiter-params-5.12.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.12.2\junit-jupiter-engine-5.12.2.jar;
+java.vm.vendor=Oracle Corporation
+sun.arch.data.model=64
+user.variant=
+java.vendor.url=https://java.oracle.com/
+user.timezone=Asia/Colombo
+org.jboss.logging.provider=slf4j
+java.vm.specification.version=21
+os.name=Windows 11
+APPLICATION_NAME=staff-auth
+sun.java.launcher=SUN_STANDARD
+user.country=US
+sun.boot.library.path=C:\Program Files\Java\jdk-21\bin
+sun.java.command=C:\Users\NuwanthaKarunarathna\AppData\Local\Temp\surefire6859803311805790156\surefirebooter-20251031131118745_3.jar C:\Users\NuwanthaKarunarathna\AppData\Local\Temp\surefire6859803311805790156 2025-10-31T13-11-18_432-jvmRun1 surefire-20251031131118745_1tmp surefire_0-20251031131118745_2tmp
+jdk.debug=release
+surefire.test.class.path=C:\Intern_Project_Code\task-01-backend\target\test-classes;C:\Intern_Project_Code\task-01-backend\target\classes;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.5.6\spring-boot-starter-web-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-starter\3.5.6\spring-boot-starter-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot\3.5.6\spring-boot-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.5.6\spring-boot-autoconfigure-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.5.6\spring-boot-starter-logging-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\ch\qos\logback\logback-classic\1.5.18\logback-classic-1.5.18.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\ch\qos\logback\logback-core\1.5.18\logback-core-1.5.18.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.24.3\log4j-to-slf4j-2.24.3.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apache\logging\log4j\log4j-api\2.24.3\log4j-api-2.24.3.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\slf4j\jul-to-slf4j\2.0.17\jul-to-slf4j-2.0.17.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\yaml\snakeyaml\2.4\snakeyaml-2.4.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.5.6\spring-boot-starter-json-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.19.2\jackson-databind-2.19.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.19.2\jackson-annotations-2.19.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.19.2\jackson-core-2.19.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.19.2\jackson-datatype-jdk8-2.19.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.19.2\jackson-datatype-jsr310-2.19.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.19.2\jackson-module-parameter-names-2.19.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.5.6\spring-boot-starter-tomcat-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.46\tomcat-embed-core-10.1.46.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.46\tomcat-embed-websocket-10.1.46.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-web\6.2.11\spring-web-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-beans\6.2.11\spring-beans-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\micrometer\micrometer-observation\1.15.4\micrometer-observation-1.15.4.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\micrometer\micrometer-commons\1.15.4\micrometer-commons-1.15.4.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-webmvc\6.2.11\spring-webmvc-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-context\6.2.11\spring-context-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-expression\6.2.11\spring-expression-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-starter-security\3.5.6\spring-boot-starter-security-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-aop\6.2.11\spring-aop-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\security\spring-security-config\6.5.5\spring-security-config-6.5.5.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\security\spring-security-web\6.5.5\spring-security-web-6.5.5.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.5.6\spring-boot-starter-data-jpa-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.5.6\spring-boot-starter-jdbc-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\zaxxer\HikariCP\6.3.3\HikariCP-6.3.3.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-jdbc\6.2.11\spring-jdbc-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\hibernate\orm\hibernate-core\6.6.29.Final\hibernate-core-6.6.29.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\hibernate\common\hibernate-commons-annotations\7.0.3.Final\hibernate-commons-annotations-7.0.3.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\smallrye\jandex\3.2.0\jandex-3.2.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\fasterxml\classmate\1.7.0\classmate-1.7.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\net\bytebuddy\byte-buddy\1.17.7\byte-buddy-1.17.7.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.5\jaxb-runtime-4.0.5.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\glassfish\jaxb\txw2\4.0.5\txw2-4.0.5.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\antlr\antlr4-runtime\4.13.0\antlr4-runtime-4.13.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\data\spring-data-jpa\3.5.4\spring-data-jpa-3.5.4.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\data\spring-data-commons\3.5.4\spring-data-commons-3.5.4.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-orm\6.2.11\spring-orm-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-tx\6.2.11\spring-tx-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-aspects\6.2.11\spring-aspects-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\aspectj\aspectjweaver\1.9.19\aspectjweaver-1.9.19.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-starter-validation\3.5.6\spring-boot-starter-validation-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.46\tomcat-embed-el-10.1.46.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.3.Final\hibernate-validator-8.0.3.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-starter-oauth2-client\3.5.6\spring-boot-starter-oauth2-client-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\security\spring-security-core\6.5.5\spring-security-core-6.5.5.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\security\spring-security-crypto\6.5.5\spring-security-crypto-6.5.5.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\security\spring-security-oauth2-client\6.5.5\spring-security-oauth2-client-6.5.5.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\nimbusds\oauth2-oidc-sdk\9.43.6\oauth2-oidc-sdk-9.43.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\nimbusds\content-type\2.2\content-type-2.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\nimbusds\lang-tag\1.7\lang-tag-1.7.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-starter-oauth2-resource-server\3.5.6\spring-boot-starter-oauth2-resource-server-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\postgresql\postgresql\42.7.7\postgresql-42.7.7.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\checkerframework\checker-qual\3.49.3\checker-qual-3.49.3.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\nimbusds\nimbus-jose-jwt\9.37\nimbus-jose-jwt-9.37.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\github\stephenc\jcip\jcip-annotations\1.0-1\jcip-annotations-1.0-1.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\security\spring-security-oauth2-resource-server\6.5.5\spring-security-oauth2-resource-server-6.5.5.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\security\spring-security-oauth2-core\6.5.5\spring-security-oauth2-core-6.5.5.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-core\6.2.11\spring-core-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-jcl\6.2.11\spring-jcl-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\security\spring-security-oauth2-jose\6.5.5\spring-security-oauth2-jose-6.5.5.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\thymeleaf\extras\thymeleaf-extras-springsecurity6\3.1.3.RELEASE\thymeleaf-extras-springsecurity6-3.1.3.RELEASE.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\thymeleaf\thymeleaf-spring6\3.1.3.RELEASE\thymeleaf-spring6-3.1.3.RELEASE.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\thymeleaf\thymeleaf\3.1.3.RELEASE\thymeleaf-3.1.3.RELEASE.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\attoparser\attoparser\2.0.7.RELEASE\attoparser-2.0.7.RELEASE.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\unbescape\unbescape\1.1.6.RELEASE\unbescape-1.1.6.RELEASE.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\slf4j\slf4j-api\2.0.17\slf4j-api-2.0.17.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\projectlombok\lombok\1.18.40\lombok-1.18.40.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\ses\2.20.0\ses-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\aws-query-protocol\2.20.0\aws-query-protocol-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\protocol-core\2.20.0\protocol-core-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\sdk-core\2.20.0\sdk-core-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\profiles\2.20.0\profiles-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\reactivestreams\reactive-streams\1.0.4\reactive-streams-1.0.4.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\auth\2.20.0\auth-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\eventstream\eventstream\1.0.1\eventstream-1.0.1.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\http-client-spi\2.20.0\http-client-spi-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\regions\2.20.0\regions-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\annotations\2.20.0\annotations-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\utils\2.20.0\utils-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\aws-core\2.20.0\aws-core-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\metrics-spi\2.20.0\metrics-spi-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\json-utils\2.20.0\json-utils-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\third-party-jackson-core\2.20.0\third-party-jackson-core-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\endpoints-spi\2.20.0\endpoints-spi-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\apache-client\2.20.0\apache-client-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apache\httpcomponents\httpcore\4.4.16\httpcore-4.4.16.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\netty-nio-client\2.20.0\netty-nio-client-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\netty\netty-codec-http\4.1.127.Final\netty-codec-http-4.1.127.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\netty\netty-codec-http2\4.1.127.Final\netty-codec-http2-4.1.127.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\netty\netty-codec\4.1.127.Final\netty-codec-4.1.127.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\netty\netty-transport\4.1.127.Final\netty-transport-4.1.127.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\netty\netty-resolver\4.1.127.Final\netty-resolver-4.1.127.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\netty\netty-common\4.1.127.Final\netty-common-4.1.127.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\netty\netty-buffer\4.1.127.Final\netty-buffer-4.1.127.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\netty\netty-handler\4.1.127.Final\netty-handler-4.1.127.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\netty\netty-transport-native-unix-common\4.1.127.Final\netty-transport-native-unix-common-4.1.127.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\netty\netty-transport-classes-epoll\4.1.127.Final\netty-transport-classes-epoll-4.1.127.Final.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\sns\2.20.0\sns-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\software\amazon\awssdk\cloudwatch\2.20.0\cloudwatch-2.20.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.5.6\spring-boot-starter-test-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-test\3.5.6\spring-boot-test-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.5.6\spring-boot-test-autoconfigure-3.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.4\jakarta.activation-api-2.1.4.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\net\minidev\json-smart\2.5.2\json-smart-2.5.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\net\minidev\accessors-smart\2.5.2\accessors-smart-2.5.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\ow2\asm\asm\9.7.1\asm-9.7.1.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\assertj\assertj-core\3.27.4\assertj-core-3.27.4.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\awaitility\awaitility\4.2.2\awaitility-4.2.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\hamcrest\hamcrest\3.0\hamcrest-3.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\mockito\mockito-core\5.17.0\mockito-core-5.17.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.7\byte-buddy-agent-1.17.7.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\mockito\mockito-junit-jupiter\5.17.0\mockito-junit-jupiter-5.17.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\skyscreamer\jsonassert\1.5.3\jsonassert-1.5.3.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\spring-test\6.2.11\spring-test-6.2.11.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\xmlunit\xmlunit-core\2.10.4\xmlunit-core-2.10.4.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\springframework\security\spring-security-test\6.5.5\spring-security-test-6.5.5.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\rest-assured\rest-assured\5.4.0\rest-assured-5.4.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apache\groovy\groovy\4.0.28\groovy-4.0.28.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apache\groovy\groovy-xml\4.0.28\groovy-xml-4.0.28.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\commons-codec\commons-codec\1.18.0\commons-codec-1.18.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\rest-assured\json-path\5.5.6\json-path-5.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apache\groovy\groovy-json\4.0.28\groovy-json-4.0.28.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\rest-assured\rest-assured-common\5.5.6\rest-assured-common-5.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\rest-assured\xml-path\5.5.6\xml-path-5.5.6.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apache\commons\commons-lang3\3.17.0\commons-lang3-3.17.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\com\h2database\h2\2.3.232\h2-2.3.232.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\qameta\allure\allure-junit5\2.24.0\allure-junit5-2.24.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\qameta\allure\allure-junit-platform\2.24.0\allure-junit-platform-2.24.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\qameta\allure\allure-java-commons\2.24.0\allure-java-commons-2.24.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\qameta\allure\allure-model\2.24.0\allure-model-2.24.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\qameta\allure\allure-test-filter\2.24.0\allure-test-filter-2.24.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.12.2\junit-jupiter-api-5.12.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\junit\platform\junit-platform-commons\1.12.2\junit-platform-commons-1.12.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\junit\platform\junit-platform-launcher\1.12.2\junit-platform-launcher-1.12.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\junit\platform\junit-platform-engine\1.12.2\junit-platform-engine-1.12.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\qameta\allure\allure-rest-assured\2.24.0\allure-rest-assured-2.24.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\io\qameta\allure\allure-attachments\2.24.0\allure-attachments-2.24.0.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\freemarker\freemarker\2.3.34\freemarker-2.3.34.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\junit\jupiter\junit-jupiter\5.12.2\junit-jupiter-5.12.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.12.2\junit-jupiter-params-5.12.2.jar;C:\Users\NuwanthaKarunarathna\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.12.2\junit-jupiter-engine-5.12.2.jar;
+sun.cpu.endian=little
+allure.results.directory=C:\Intern_Project_Code\task-01-backend\target/allure-results
+user.home=C:\Users\NuwanthaKarunarathna
+user.language=en
+java.specification.vendor=Oracle Corporation
+java.version.date=2025-07-15
+java.home=C:\Program Files\Java\jdk-21
+file.separator=\
+basedir=C:\Intern_Project_Code\task-01-backend
+java.vm.compressedOopsMode=Zero based
+line.separator=
+
+java.vm.specification.vendor=Oracle Corporation
+java.specification.name=Java Platform API Specification
+FILE_LOG_CHARSET=UTF-8
+java.awt.headless=true
+surefire.real.class.path=C:\Users\NuwanthaKarunarathna\AppData\Local\Temp\surefire6859803311805790156\surefirebooter-20251031131118745_3.jar
+user.script=
+sun.management.compiler=HotSpot 64-Bit Tiered Compilers
+java.runtime.version=21.0.8+12-LTS-250
+user.name=NuwanthaKarunarathna
+stdout.encoding=Cp1252
+path.separator=;
+os.version=10.0
+java.runtime.name=Java(TM) SE Runtime Environment
+file.encoding=UTF-8
+java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+localRepository=C:\Users\NuwanthaKarunarathna\.m2\repository
+java.vendor.url.bug=https://bugreport.java.com/bugreport/
+java.io.tmpdir=C:\Users\NUWANT~1\AppData\Local\Temp\
+java.version=21.0.8
+user.dir=C:\Intern_Project_Code\task-01-backend
+os.arch=amd64
+java.vm.specification.name=Java Virtual Machine Specification
+PID=45460
+sun.os.patch.level=
+CONSOLE_LOG_CHARSET=UTF-8
+native.encoding=Cp1252
+java.library.path=C:\Program Files\Java\jdk-21\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\flutter\bin\cache\dart-sdk\bin\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Python313\Scripts\;C:\Program Files\Python313\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Java\jdk-21\bin;C:\Program Files\cursor\resources\app\bin;C:\Program Files\apache-maven-3.9.11\bin;C:\Program Files\PostgreSQL\18\bin;C:\Users\NuwanthaKarunarathna\AppData\Local\Microsoft\WindowsApps;C:\Users\NuwanthaKarunarathna\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\NuwanthaKarunarathna\AppData\Local\Programs\Azure Data Studio\bin;C:\Users\NuwanthaKarunarathna\AppData\Roaming\npm;C:\Users\NuwanthaKarunarathna\AppData\Local\Programs\Git\cmd;C:\Users\NuwanthaKarunarathna\AppData\Local\GitHubDesktop\bin;C:\flutter\bin;;c:\Users\NuwanthaKarunarathna\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand;.
+java.vm.info=mixed mode, sharing
+stderr.encoding=Cp1252
+java.vendor=Oracle Corporation
+java.vm.version=21.0.8+12-LTS-250
+sun.io.unicode.encoding=UnicodeLittle
+java.class.version=65.0
+LOGGED_APPLICATION_NAME=[staff-auth] 
+---- Command Line ---
+Empty
+---- Full Classpath ---
+Empty
+---- Compiler Messages ---
+info AspectJ Weaver Version 1.9.19 built on Wednesday Dec 21, 2022 at 06:57:22 PST
+info register classloader jdk.internal.loader.ClassLoaders$AppClassLoader@5a07e868
+info using configuration file:/C:/Users/NuwanthaKarunarathna/.m2/repository/org/springframework/spring-aspects/6.2.11/spring-aspects-6.2.11.jar!/META-INF/aop.xml
+info using configuration file:/C:/Users/NuwanthaKarunarathna/.m2/repository/io/qameta/allure/allure-junit-platform/2.24.0/allure-junit-platform-2.24.0.jar!/META-INF/aop-ajc.xml
+abort trouble in: 
+class org.springframework.boot.jdbc.DataSourceBuilder$OraclePoolDataSourceProperties extends org.springframework.boot.jdbc.DataSourceBuilder$MappedDataSourceProperties:
+  public Class getDataSourceInstanceType():
+                    LDC oracle.ucp.jdbc.PoolDataSourceImpl   (line 662)
+                    ARETURN
+  end public Class getDataSourceInstanceType()
+
+  void <init>():
+                    ALOAD_0     // Lorg/springframework/boot/jdbc/DataSourceBuilder$OraclePoolDataSourceProperties; this   (line 665)
+                    INVOKESPECIAL org.springframework.boot.jdbc.DataSourceBuilder$MappedDataSourceProperties.<init> ()V
+                    ALOAD_0     // Lorg/springframework/boot/jdbc/DataSourceBuilder$OraclePoolDataSourceProperties; this   (line 666)
+                    GETSTATIC org.springframework.boot.jdbc.DataSourceBuilder$DataSourceProperty.URL Lorg/springframework/boot/jdbc/DataSourceBuilder$DataSourceProperty;
+                    INVOKEDYNAMIC #0.get ()Lorg/springframework/boot/jdbc/DataSourceBuilder$Getter;
+                    INVOKEDYNAMIC #1.set ()Lorg/springframework/boot/jdbc/DataSourceBuilder$Setter;
+                    INVOKEVIRTUAL org.springframework.boot.jdbc.DataSourceBuilder$OraclePoolDataSourceProperties.add (Lorg/springframework/boot/jdbc/DataSourceBuilder$DataSourceProperty;Lorg/springframework/boot/jdbc/DataSourceBuilder$Getter;Lorg/springframework/boot/jdbc/DataSourceBuilder$Setter;)V
+                    ALOAD_0     // Lorg/springframework/boot/jdbc/DataSourceBuilder$OraclePoolDataSourceProperties; this   (line 667)
+                    GETSTATIC org.springframework.boot.jdbc.DataSourceBuilder$DataSourceProperty.DRIVER_CLASS_NAME Lorg/springframework/boot/jdbc/DataSourceBuilder$DataSourceProperty;
+                    INVOKEDYNAMIC #2.get ()Lorg/springframework/boot/jdbc/DataSourceBuilder$Getter;
+                    INVOKEDYNAMIC #3.set ()Lorg/springframework/boot/jdbc/DataSourceBuilder$Setter;
+                    INVOKEVIRTUAL org.springframework.boot.jdbc.DataSourceBuilder$OraclePoolDataSourceProperties.add (Lorg/springframework/boot/jdbc/DataSourceBuilder$DataSourceProperty;Lorg/springframework/boot/jdbc/DataSourceBuilder$Getter;Lorg/springframework/boot/jdbc/DataSourceBuilder$Setter;)V
+                    ALOAD_0     // Lorg/springframework/boot/jdbc/DataSourceBuilder$OraclePoolDataSourceProperties; this   (line 669)
+                    GETSTATIC org.springframework.boot.jdbc.DataSourceBuilder$DataSourceProperty.USERNAME Lorg/springframework/boot/jdbc/DataSourceBuilder$DataSourceProperty;
+                    INVOKEDYNAMIC #4.get ()Lorg/springframework/boot/jdbc/DataSourceBuilder$Getter;
+                    INVOKEDYNAMIC #5.set ()Lorg/springframework/boot/jdbc/DataSourceBuilder$Setter;
+                    INVOKEVIRTUAL org.springframework.boot.jdbc.DataSourceBuilder$OraclePoolDataSourceProperties.add (Lorg/springframework/boot/jdbc/DataSourceBuilder$DataSourceProperty;Lorg/springframework/boot/jdbc/DataSourceBuilder$Getter;Lorg/springframework/boot/jdbc/DataSourceBuilder$Setter;)V
+                    ALOAD_0     // Lorg/springframework/boot/jdbc/DataSourceBuilder$OraclePoolDataSourceProperties; this   (line 670)
+                    GETSTATIC org.springframework.boot.jdbc.DataSourceBuilder$DataSourceProperty.PASSWORD Lorg/springframework/boot/jdbc/DataSourceBuilder$DataSourceProperty;
+                    ACONST_NULL
+                    INVOKEDYNAMIC #6.set ()Lorg/springframework/boot/jdbc/DataSourceBuilder$Setter;
+                    INVOKEVIRTUAL org.springframework.boot.jdbc.DataSourceBuilder$OraclePoolDataSourceProperties.add (Lorg/springframework/boot/jdbc/DataSourceBuilder$DataSourceProperty;Lorg/springframework/boot/jdbc/DataSourceBuilder$Getter;Lorg/springframework/boot/jdbc/DataSourceBuilder$Setter;)V
+                    RETURN   (line 671)
+  end void <init>()
+
+end class org.springframework.boot.jdbc.DataSourceBuilder$OraclePoolDataSourceProperties
+ -- (IllegalStateException) org.aspectj.weaver.MissingResolvedTypeWithKnownSignature) (typeBindings={T=oracle.ucp.jdbc.PoolDataSource})
+org.aspectj.weaver.MissingResolvedTypeWithKnownSignature) (typeBindings={T=oracle.ucp.jdbc.PoolDataSource})
+java.lang.IllegalStateException: org.aspectj.weaver.MissingResolvedTypeWithKnownSignature) (typeBindings={T=oracle.ucp.jdbc.PoolDataSource})
+	at org.aspectj.weaver.BoundedReferenceType.parameterize(BoundedReferenceType.java:112)
+	at org.aspectj.weaver.ResolvedType.parameterize(ResolvedType.java:2549)
+	at org.aspectj.weaver.ResolvedMemberImpl.parameterize(ResolvedMemberImpl.java:897)
+	at org.aspectj.weaver.ResolvedMemberImpl.parameterizedWith(ResolvedMemberImpl.java:789)
+	at org.aspectj.weaver.ResolvedMemberImpl.parameterizedWith(ResolvedMemberImpl.java:742)
+	at org.aspectj.weaver.ReferenceType.getDeclaredMethods(ReferenceType.java:865)
+	at org.aspectj.weaver.ResolvedType$MethodGetterIncludingItds.get(ResolvedType.java:271)
+	at org.aspectj.weaver.ResolvedType$MethodGetterIncludingItds.get(ResolvedType.java:268)
+	at org.aspectj.weaver.Iterators$4$1.hasNext(Iterators.java:213)
+	at org.aspectj.weaver.Iterators$4.hasNext(Iterators.java:230)
+	at org.aspectj.weaver.ResolvedType.lookupResolvedMember(ResolvedType.java:642)
+	at org.aspectj.weaver.JoinPointSignatureIterator.findSignaturesFromSupertypes(JoinPointSignatureIterator.java:192)
+	at org.aspectj.weaver.JoinPointSignatureIterator.hasNext(JoinPointSignatureIterator.java:68)
+	at org.aspectj.weaver.patterns.SignaturePattern.matches(SignaturePattern.java:317)
+	at org.aspectj.weaver.patterns.KindedPointcut.matchInternal(KindedPointcut.java:202)
+	at org.aspectj.weaver.patterns.Pointcut.match(Pointcut.java:137)
+	at org.aspectj.weaver.patterns.AndPointcut.matchInternal(AndPointcut.java:56)
+	at org.aspectj.weaver.patterns.Pointcut.match(Pointcut.java:137)
+	at org.aspectj.weaver.patterns.OrPointcut.matchInternal(OrPointcut.java:56)
+	at org.aspectj.weaver.patterns.Pointcut.match(Pointcut.java:137)
+	at org.aspectj.weaver.ShadowMunger.match(ShadowMunger.java:113)
+	at org.aspectj.weaver.Advice.match(Advice.java:113)
+	at org.aspectj.weaver.bcel.BcelAdvice.match(BcelAdvice.java:158)
+	at org.aspectj.weaver.bcel.BcelClassWeaver.match(BcelClassWeaver.java:3336)
+	at org.aspectj.weaver.bcel.BcelClassWeaver.match(BcelClassWeaver.java:2716)
+	at org.aspectj.weaver.bcel.BcelClassWeaver.weave(BcelClassWeaver.java:483)
+	at org.aspectj.weaver.bcel.BcelClassWeaver.weave(BcelClassWeaver.java:103)
+	at org.aspectj.weaver.bcel.BcelWeaver.weave(BcelWeaver.java:1706)
+	at org.aspectj.weaver.bcel.BcelWeaver.weaveWithoutDump(BcelWeaver.java:1650)
+	at org.aspectj.weaver.bcel.BcelWeaver.weaveAndNotify(BcelWeaver.java:1417)
+	at org.aspectj.weaver.bcel.BcelWeaver.weave(BcelWeaver.java:1192)
+	at org.aspectj.weaver.tools.WeavingAdaptor.getWovenBytes(WeavingAdaptor.java:549)
+	at org.aspectj.weaver.tools.WeavingAdaptor.weaveClass(WeavingAdaptor.java:385)
+	at org.aspectj.weaver.loadtime.Aj.preProcess(Aj.java:116)
+	at org.aspectj.weaver.loadtime.ClassPreProcessorAgentAdapter.transform(ClassPreProcessorAgentAdapter.java:51)
+	at java.instrument/java.lang.instrument.ClassFileTransformer.transform(ClassFileTransformer.java:244)
+	at java.instrument/sun.instrument.TransformerManager.transform(TransformerManager.java:188)
+	at java.instrument/sun.instrument.InstrumentationImpl.transform(InstrumentationImpl.java:610)
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1027)
+	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:150)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:862)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassOnClassPathOrNull(BuiltinClassLoader.java:760)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:681)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:639)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	at org.springframework.boot.jdbc.DataSourceBuilder$MappedDataSourceProperties.lookupPooled(DataSourceBuilder.java:407)
+	at org.springframework.boot.jdbc.DataSourceBuilder$MappedDataSourceProperties.forType(DataSourceBuilder.java:391)
+	at org.springframework.boot.jdbc.DataSourceBuilder.findType(DataSourceBuilder.java:263)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration$PooledDataSourceAvailableCondition.getMatchOutcome(DataSourceAutoConfiguration.java:120)
+	at org.springframework.boot.autoconfigure.condition.AbstractNestedCondition$MemberOutcomes.getConditionOutcome(AbstractNestedCondition.java:195)
+	at org.springframework.boot.autoconfigure.condition.AbstractNestedCondition$MemberOutcomes.<init>(AbstractNestedCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.AbstractNestedCondition$MemberConditions.lambda$getMatchOutcomes$0(AbstractNestedCondition.java:169)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:986)
+	at org.springframework.util.MultiValueMapAdapter.forEach(MultiValueMapAdapter.java:179)
+	at java.base/java.util.Collections$UnmodifiableMap.forEach(Collections.java:1707)
+	at org.springframework.boot.autoconfigure.condition.AbstractNestedCondition$MemberConditions.getMatchOutcomes(AbstractNestedCondition.java:169)
+	at org.springframework.boot.autoconfigure.condition.AbstractNestedCondition$MemberMatchOutcomes.<init>(AbstractNestedCondition.java:78)
+	at org.springframework.boot.autoconfigure.condition.AbstractNestedCondition.getMatchOutcome(AbstractNestedCondition.java:63)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:99)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:247)
+	at org.springframework.context.annotation.ConfigurationClassParser.processMemberClasses(ConfigurationClassParser.java:427)
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:308)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:281)
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:617)
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorGroupingHandler.lambda$processGroupImports$1(ConfigurationClassParser.java:850)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorGroupingHandler.processGroupImports(ConfigurationClassParser.java:847)
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorHandler.process(ConfigurationClassParser.java:817)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:198)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:418)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:290)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:791)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:609)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:144)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1461)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:563)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:144)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:110)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:155)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:111)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:159)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:383)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:388)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:382)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:382)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:293)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:292)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:281)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:280)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:27)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:112)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:111)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:128)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:128)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:201)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:170)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:94)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:59)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:142)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$1(InterceptingLauncher.java:39)
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25)
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:38)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:50)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+abort trouble in: 
+class org.springframework.boot.jdbc.DataSourceBuilder$ComboPooledDataSourceProperties extends org.springframework.boot.jdbc.DataSourceBuilder$MappedDataSourceProperties:
+  void <init>():
+                    ALOAD_0     // Lorg/springframework/boot/jdbc/DataSourceBuilder$ComboPooledDataSourceProperties; this   (line 680)
+                    INVOKESPECIAL org.springframework.boot.jdbc.DataSourceBuilder$MappedDataSourceProperties.<init> ()V
+    constructor-execution(void org.springframework.boot.jdbc.DataSourceBuilder$ComboPooledDataSourceProperties.<init>())
+    |               ALOAD_0     // Lorg/springframework/boot/jdbc/DataSourceBuilder$ComboPooledDataSourceProperties; this   (line 681)
+    |               GETSTATIC org.springframework.boot.jdbc.DataSourceBuilder$DataSourceProperty.URL Lorg/springframework/boot/jdbc/DataSourceBuilder$DataSourceProperty;
+    |               INVOKEDYNAMIC #0.get ()Lorg/springframework/boot/jdbc/DataSourceBuilder$Getter;
+    |               INVOKEDYNAMIC #1.set ()Lorg/springframework/boot/jdbc/DataSourceBuilder$Setter;
+    |               INVOKEVIRTUAL org.springframework.boot.jdbc.DataSourceBuilder$ComboPooledDataSourceProperties.add (Lorg/springframework/boot/jdbc/DataSourceBuilder$DataSourceProperty;Lorg/springframework/boot/jdbc/DataSourceBuilder$Getter;Lorg/springframework/boot/jdbc/DataSourceBuilder$Setter;)V
+    |               ALOAD_0     // Lorg/springframework/boot/jdbc/DataSourceBuilder$ComboPooledDataSourceProperties; this   (line 682)
+    |               GETSTATIC org.springframework.boot.jdbc.DataSourceBuilder$DataSourceProperty.DRIVER_CLASS_NAME Lorg/springframework/boot/jdbc/DataSourceBuilder$DataSourceProperty;
+    |               INVOKEDYNAMIC #2.get ()Lorg/springframework/boot/jdbc/DataSourceBuilder$Getter;
+    |               ALOAD_0     // Lorg/springframework/boot/jdbc/DataSourceBuilder$ComboPooledDataSourceProperties; this
+    |               INVOKEDYNAMIC #3.set (Lorg/springframework/boot/jdbc/DataSourceBuilder$ComboPooledDataSourceProperties;)Lorg/springframework/boot/jdbc/DataSourceBuilder$Setter;
+    |               INVOKEVIRTUAL org.springframework.boot.jdbc.DataSourceBuilder$ComboPooledDataSourceProperties.add (Lorg/springframework/boot/jdbc/DataSourceBuilder$DataSourceProperty;Lorg/springframework/boot/jdbc/DataSourceBuilder$Getter;Lorg/springframework/boot/jdbc/DataSourceBuilder$Setter;)V
+    |               ALOAD_0     // Lorg/springframework/boot/jdbc/DataSourceBuilder$ComboPooledDataSourceProperties; this   (line 683)
+    |               GETSTATIC org.springframework.boot.jdbc.DataSourceBuilder$DataSourceProperty.USERNAME Lorg/springframework/boot/jdbc/DataSourceBuilder$DataSourceProperty;
+    |               INVOKEDYNAMIC #4.get ()Lorg/springframework/boot/jdbc/DataSourceBuilder$Getter;
+    |               INVOKEDYNAMIC #5.set ()Lorg/springframework/boot/jdbc/DataSourceBuilder$Setter;
+    |               INVOKEVIRTUAL org.springframework.boot.jdbc.DataSourceBuilder$ComboPooledDataSourceProperties.add (Lorg/springframework/boot/jdbc/DataSourceBuilder$DataSourceProperty;Lorg/springframework/boot/jdbc/DataSourceBuilder$Getter;Lorg/springframework/boot/jdbc/DataSourceBuilder$Setter;)V
+    |               ALOAD_0     // Lorg/springframework/boot/jdbc/DataSourceBuilder$ComboPooledDataSourceProperties; this   (line 684)
+    |               GETSTATIC org.springframework.boot.jdbc.DataSourceBuilder$DataSourceProperty.PASSWORD Lorg/springframework/boot/jdbc/DataSourceBuilder$DataSourceProperty;
+    |               INVOKEDYNAMIC #6.get ()Lorg/springframework/boot/jdbc/DataSourceBuilder$Getter;
+    |               INVOKEDYNAMIC #7.set ()Lorg/springframework/boot/jdbc/DataSourceBuilder$Setter;
+    |               INVOKEVIRTUAL org.springframework.boot.jdbc.DataSourceBuilder$ComboPooledDataSourceProperties.add (Lorg/springframework/boot/jdbc/DataSourceBuilder$DataSourceProperty;Lorg/springframework/boot/jdbc/DataSourceBuilder$Getter;Lorg/springframework/boot/jdbc/DataSourceBuilder$Setter;)V
+    |               RETURN   (line 685)
+    constructor-execution(void org.springframework.boot.jdbc.DataSourceBuilder$ComboPooledDataSourceProperties.<init>())
+  end void <init>()
+
+  private void setDriverClass(com.mchange.v2.c3p0.ComboPooledDataSource, String):
+    catch java.beans.PropertyVetoException -> E0
+    |               ALOAD_1     // Lcom/mchange/v2/c3p0/ComboPooledDataSource; dataSource   (line 689)
+    |               ALOAD_2     // Ljava/lang/String; driverClass
+    |               INVOKEVIRTUAL com.mchange.v2.c3p0.ComboPooledDataSource.setDriverClass (Ljava/lang/String;)V
+    catch java.beans.PropertyVetoException -> E0
+                    GOTO L0   (line 693)
+                E0: ASTORE_3   (line 691)
+                    NEW java.lang.IllegalArgumentException   (line 692)
+                    DUP
+                    ALOAD_3     // Ljava/beans/PropertyVetoException; ex
+                    INVOKESPECIAL java.lang.IllegalArgumentException.<init> (Ljava/lang/Throwable;)V
+                    ATHROW
+                L0: RETURN   (line 694)
+  end private void setDriverClass(com.mchange.v2.c3p0.ComboPooledDataSource, String)
+
+end class org.springframework.boot.jdbc.DataSourceBuilder$ComboPooledDataSourceProperties
+ -- (IllegalStateException) org.aspectj.weaver.MissingResolvedTypeWithKnownSignature) (typeBindings={T=com.mchange.v2.c3p0.ComboPooledDataSource})
+org.aspectj.weaver.MissingResolvedTypeWithKnownSignature) (typeBindings={T=com.mchange.v2.c3p0.ComboPooledDataSource})
+java.lang.IllegalStateException: org.aspectj.weaver.MissingResolvedTypeWithKnownSignature) (typeBindings={T=com.mchange.v2.c3p0.ComboPooledDataSource})
+	at org.aspectj.weaver.BoundedReferenceType.parameterize(BoundedReferenceType.java:112)
+	at org.aspectj.weaver.ResolvedType.parameterize(ResolvedType.java:2549)
+	at org.aspectj.weaver.ResolvedMemberImpl.parameterize(ResolvedMemberImpl.java:897)
+	at org.aspectj.weaver.ResolvedMemberImpl.parameterizedWith(ResolvedMemberImpl.java:789)
+	at org.aspectj.weaver.ResolvedMemberImpl.parameterizedWith(ResolvedMemberImpl.java:742)
+	at org.aspectj.weaver.ReferenceType.getDeclaredMethods(ReferenceType.java:865)
+	at org.aspectj.weaver.ResolvedType$MethodGetterIncludingItds.get(ResolvedType.java:271)
+	at org.aspectj.weaver.ResolvedType$MethodGetterIncludingItds.get(ResolvedType.java:268)
+	at org.aspectj.weaver.Iterators$4$1.hasNext(Iterators.java:213)
+	at org.aspectj.weaver.Iterators$4.hasNext(Iterators.java:230)
+	at org.aspectj.weaver.ResolvedType.lookupResolvedMember(ResolvedType.java:642)
+	at org.aspectj.weaver.JoinPointSignatureIterator.findSignaturesFromSupertypes(JoinPointSignatureIterator.java:192)
+	at org.aspectj.weaver.JoinPointSignatureIterator.hasNext(JoinPointSignatureIterator.java:68)
+	at org.aspectj.weaver.patterns.SignaturePattern.matches(SignaturePattern.java:317)
+	at org.aspectj.weaver.patterns.KindedPointcut.matchInternal(KindedPointcut.java:202)
+	at org.aspectj.weaver.patterns.Pointcut.match(Pointcut.java:137)
+	at org.aspectj.weaver.patterns.AndPointcut.matchInternal(AndPointcut.java:56)
+	at org.aspectj.weaver.patterns.Pointcut.match(Pointcut.java:137)
+	at org.aspectj.weaver.patterns.OrPointcut.matchInternal(OrPointcut.java:56)
+	at org.aspectj.weaver.patterns.Pointcut.match(Pointcut.java:137)
+	at org.aspectj.weaver.ShadowMunger.match(ShadowMunger.java:113)
+	at org.aspectj.weaver.Advice.match(Advice.java:113)
+	at org.aspectj.weaver.bcel.BcelAdvice.match(BcelAdvice.java:158)
+	at org.aspectj.weaver.bcel.BcelClassWeaver.match(BcelClassWeaver.java:3336)
+	at org.aspectj.weaver.bcel.BcelClassWeaver.match(BcelClassWeaver.java:2716)
+	at org.aspectj.weaver.bcel.BcelClassWeaver.weave(BcelClassWeaver.java:483)
+	at org.aspectj.weaver.bcel.BcelClassWeaver.weave(BcelClassWeaver.java:103)
+	at org.aspectj.weaver.bcel.BcelWeaver.weave(BcelWeaver.java:1706)
+	at org.aspectj.weaver.bcel.BcelWeaver.weaveWithoutDump(BcelWeaver.java:1650)
+	at org.aspectj.weaver.bcel.BcelWeaver.weaveAndNotify(BcelWeaver.java:1417)
+	at org.aspectj.weaver.bcel.BcelWeaver.weave(BcelWeaver.java:1192)
+	at org.aspectj.weaver.tools.WeavingAdaptor.getWovenBytes(WeavingAdaptor.java:549)
+	at org.aspectj.weaver.tools.WeavingAdaptor.weaveClass(WeavingAdaptor.java:385)
+	at org.aspectj.weaver.loadtime.Aj.preProcess(Aj.java:116)
+	at org.aspectj.weaver.loadtime.ClassPreProcessorAgentAdapter.transform(ClassPreProcessorAgentAdapter.java:51)
+	at java.instrument/java.lang.instrument.ClassFileTransformer.transform(ClassFileTransformer.java:244)
+	at java.instrument/sun.instrument.TransformerManager.transform(TransformerManager.java:188)
+	at java.instrument/sun.instrument.InstrumentationImpl.transform(InstrumentationImpl.java:610)
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1027)
+	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:150)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:862)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassOnClassPathOrNull(BuiltinClassLoader.java:760)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:681)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:639)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	at org.springframework.boot.jdbc.DataSourceBuilder$MappedDataSourceProperties.lookupPooled(DataSourceBuilder.java:409)
+	at org.springframework.boot.jdbc.DataSourceBuilder$MappedDataSourceProperties.forType(DataSourceBuilder.java:391)
+	at org.springframework.boot.jdbc.DataSourceBuilder.findType(DataSourceBuilder.java:263)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration$PooledDataSourceAvailableCondition.getMatchOutcome(DataSourceAutoConfiguration.java:120)
+	at org.springframework.boot.autoconfigure.condition.AbstractNestedCondition$MemberOutcomes.getConditionOutcome(AbstractNestedCondition.java:195)
+	at org.springframework.boot.autoconfigure.condition.AbstractNestedCondition$MemberOutcomes.<init>(AbstractNestedCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.AbstractNestedCondition$MemberConditions.lambda$getMatchOutcomes$0(AbstractNestedCondition.java:169)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:986)
+	at org.springframework.util.MultiValueMapAdapter.forEach(MultiValueMapAdapter.java:179)
+	at java.base/java.util.Collections$UnmodifiableMap.forEach(Collections.java:1707)
+	at org.springframework.boot.autoconfigure.condition.AbstractNestedCondition$MemberConditions.getMatchOutcomes(AbstractNestedCondition.java:169)
+	at org.springframework.boot.autoconfigure.condition.AbstractNestedCondition$MemberMatchOutcomes.<init>(AbstractNestedCondition.java:78)
+	at org.springframework.boot.autoconfigure.condition.AbstractNestedCondition.getMatchOutcome(AbstractNestedCondition.java:63)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:99)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:247)
+	at org.springframework.context.annotation.ConfigurationClassParser.processMemberClasses(ConfigurationClassParser.java:427)
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:308)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:281)
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:617)
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorGroupingHandler.lambda$processGroupImports$1(ConfigurationClassParser.java:850)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorGroupingHandler.processGroupImports(ConfigurationClassParser.java:847)
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorHandler.process(ConfigurationClassParser.java:817)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:198)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:418)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:290)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:791)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:609)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:144)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1461)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:563)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:144)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:110)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:155)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:111)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:159)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:383)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:388)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:382)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:382)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:293)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:292)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:281)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:280)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:27)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:112)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:111)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:128)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:128)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:201)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:170)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:94)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:59)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:142)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$1(InterceptingLauncher.java:39)
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25)
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:38)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:50)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
