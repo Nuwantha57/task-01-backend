@@ -14,7 +14,7 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 
 @DataJpaTest
-public class RoleRepositoryTest {
+class RoleRepositoryTest {
 
     @Autowired
     private TestEntityManager em;
@@ -24,7 +24,7 @@ public class RoleRepositoryTest {
 
     @Test
     @DisplayName("findByName returns role when present")
-    @Description("Persist a Role and verify findByName")
+    @Description("Persist a Role and verify findByName returns the persisted role")
     @Severity(SeverityLevel.CRITICAL)
     void whenExistingName_thenFindsRole() {
         Role role = new Role();
@@ -33,25 +33,28 @@ public class RoleRepositoryTest {
         em.persistAndFlush(role);
 
         Role found = roleRepository.findByName("ADMIN");
+
         assertThat(found).isNotNull();
         assertThat(found.getName()).isEqualTo("ADMIN");
     }
 
     @Test
     @DisplayName("findByName returns null when not present")
-    @Description("Non-existing role name should return null")
+    @Description("Querying a non-existing role name should return null")
     @Severity(SeverityLevel.NORMAL)
     void whenMissingName_thenNull() {
         Role found = roleRepository.findByName("NOPE");
+
         assertThat(found).isNull();
     }
 
     @Test
     @DisplayName("findByName with null returns null")
-    @Description("Edge case: passing null should not throw and should return null")
+    @Description("Passing null as name should not throw and return null")
     @Severity(SeverityLevel.MINOR)
     void whenNullName_thenNull() {
         Role found = roleRepository.findByName(null);
+
         assertThat(found).isNull();
     }
 }

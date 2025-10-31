@@ -20,7 +20,7 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 
 @DataJpaTest
-public class LoginAuditRepositoryTest {
+class LoginAuditRepositoryTest {
 
     @Autowired
     private TestEntityManager em;
@@ -38,9 +38,10 @@ public class LoginAuditRepositoryTest {
                 .email("a@example.com")
                 .displayName("A")
                 .build();
-        em.persist(user);
+        em.persistAndFlush(user);
 
         LocalDateTime now = LocalDateTime.now();
+
         LoginAudit la1 = LoginAudit.builder()
                 .eventType("LOGIN")
                 .ipAddress("1.2.3.4")
@@ -60,10 +61,11 @@ public class LoginAuditRepositoryTest {
         em.persist(la1);
         em.persistAndFlush(la2);
 
-        Pageable p = PageRequest.of(0, 10);
-        Page<LoginAudit> page = loginAuditRepository.findByLoginTimeBetween(now.minusDays(1), now.plusDays(1), p);
+        Pageable pageable = PageRequest.of(0, 10);
+        Page<LoginAudit> page = loginAuditRepository.findByLoginTimeBetween(now.minusDays(1), now.plusDays(1), pageable);
 
         assertThat(page.getContent()).hasSizeGreaterThanOrEqualTo(2);
+        assertThat(page.getContent()).extracting("ipAddress").containsExactlyInAnyOrder("1.2.3.4", "1.2.3.5");
     }
 
     @Test
@@ -78,13 +80,27 @@ public class LoginAuditRepositoryTest {
 
         LocalDateTime now = LocalDateTime.now();
 
-        LoginAudit a1 = LoginAudit.builder().eventType("X").ipAddress("ip1").loginTime(now).loginStatus("S").user(user1).build();
-        LoginAudit a2 = LoginAudit.builder().eventType("Y").ipAddress("ip2").loginTime(now).loginStatus("S").user(user2).build();
+        LoginAudit a1 = LoginAudit.builder()
+                .eventType("X")
+                .ipAddress("ip1")
+                .loginTime(now)
+                .loginStatus("S")
+                .user(user1)
+                .build();
+
+        LoginAudit a2 = LoginAudit.builder()
+                .eventType("Y")
+                .ipAddress("ip2")
+                .loginTime(now)
+                .loginStatus("S")
+                .user(user2)
+                .build();
+
         em.persist(a1);
         em.persistAndFlush(a2);
 
-        Pageable p = PageRequest.of(0, 10);
-        Page<LoginAudit> page = loginAuditRepository.findByUserIdAndLoginTimeBetween(user1.getId(), now.minusMinutes(1), now.plusMinutes(1), p);
+        Pageable pageable = PageRequest.of(0, 10);
+        Page<LoginAudit> page = loginAuditRepository.findByUserIdAndLoginTimeBetween(user1.getId(), now.minusMinutes(1), now.plusMinutes(1), pageable);
 
         assertThat(page.getContent()).hasSize(1);
         assertThat(page.getContent().get(0).getUser().getId()).isEqualTo(user1.getId());
@@ -96,10 +112,11 @@ public class LoginAuditRepositoryTest {
     @Severity(SeverityLevel.NORMAL)
     void whenUserIdNull_thenReturnsAnyUser() {
         LocalDateTime now = LocalDateTime.now();
-        Pageable p = PageRequest.of(0, 10);
-        Page<LoginAudit> page = loginAuditRepository.findByUserIdAndLoginTimeBetween(null, now.minusYears(1), now.plusYears(1), p);
+        Pageable pageable = PageRequest.of(0, 10);
+        Page<LoginAudit> page = loginAuditRepository.findByUserIdAndLoginTimeBetween(null, now.minusYears(1), now.plusYears(1), pageable);
 
-        // If no audits exist this may be empty; we assert no exception and a non-null page
+        // Page should be non-null even if empty
         assertThat(page).isNotNull();
+        assertThat(page.getContent()).isNotNull();
     }
 }

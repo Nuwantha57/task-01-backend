@@ -16,7 +16,7 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 
 @DataJpaTest
-public class AppUserRepositoryTest {
+class AppUserRepositoryTest {
 
     @Autowired
     private TestEntityManager em;
@@ -29,19 +29,24 @@ public class AppUserRepositoryTest {
     @Description("Persist an AppUser and verify findByCognitoId returns it")
     @Severity(SeverityLevel.CRITICAL)
     void whenExistingCognitoId_thenFindsUser() {
+        // Arrange
         AppUser user = AppUser.builder()
                 .cognitoId("cog-123")
                 .displayName("Alice")
                 .email("alice@example.com")
                 .locale("en")
                 .build();
-
         em.persistAndFlush(user);
 
+        // Act
         Optional<AppUser> found = appUserRepository.findByCognitoId("cog-123");
 
+        // Assert
         assertThat(found).isPresent();
+        assertThat(found.get().getCognitoId()).isEqualTo("cog-123");
         assertThat(found.get().getEmail()).isEqualTo("alice@example.com");
+        assertThat(found.get().getDisplayName()).isEqualTo("Alice");
+        assertThat(found.get().getLocale()).isEqualTo("en");
     }
 
     @Test
