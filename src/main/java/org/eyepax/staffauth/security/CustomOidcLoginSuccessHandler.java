@@ -38,12 +38,14 @@ public class CustomOidcLoginSuccessHandler implements AuthenticationSuccessHandl
 
         // Save or update user
         AppUser user = appUserRepository.findByCognitoId(cognitoId)
-                .orElseGet(() -> AppUser.builder()
-                        .cognitoId(cognitoId)
-                        .displayName(displayName)
-                        .email(email)
-                        .locale(locale)
-                        .build());
+                .orElseGet(() -> {
+                    AppUser u = new AppUser();
+                    u.setCognitoId(cognitoId);
+                    u.setDisplayName(displayName);
+                    u.setEmail(email);
+                    u.setLocale(locale);
+                    return u;
+                });
 
         user.setDisplayName(displayName);
         user.setEmail(email);
@@ -51,12 +53,11 @@ public class CustomOidcLoginSuccessHandler implements AuthenticationSuccessHandl
 
         // Save login audit
         String ipAddress = request.getRemoteAddr();
-        LoginAudit audit = LoginAudit.builder()
-                .eventType("LOGIN")
-                .ipAddress(ipAddress)
-                .loginTime(LocalDateTime.now())
-                .user(user)
-                .build();
+        LoginAudit audit = new LoginAudit();
+        audit.setEventType("LOGIN");
+        audit.setIpAddress(ipAddress);
+        audit.setLoginTime(LocalDateTime.now());
+        audit.setUser(user);
 
         loginAuditRepository.save(audit);
 

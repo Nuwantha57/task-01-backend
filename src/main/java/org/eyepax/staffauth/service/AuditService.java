@@ -18,12 +18,11 @@ public class AuditService {
     }
 
     public void logLogin(AppUser user, String ipAddress) {
-        LoginAudit audit = LoginAudit.builder()
-                .user(user)
-                .eventType("LOGIN")
-                .ipAddress(ipAddress)
-                .loginTime(LocalDateTime.now())
-                .build();
+        LoginAudit audit = new LoginAudit();
+        audit.setUser(user);
+        audit.setEventType("LOGIN");
+        audit.setIpAddress(ipAddress);
+        audit.setLoginTime(LocalDateTime.now());
 
         loginAuditRepository.save(audit);
     }
@@ -33,13 +32,12 @@ public class AuditService {
         String oldRolesStr = oldRoles != null ? String.join(", ", oldRoles) : "None";
         String newRolesStr = newRoles != null ? String.join(", ", newRoles) : "None";
         
-        LoginAudit audit = LoginAudit.builder()
-                .user(user)
-                .eventType("ROLE_CHANGE")
-                .ipAddress(ipAddress)
-                .loginTime(LocalDateTime.now())
-                .loginStatus(String.format("Roles changed from [%s] to [%s]", oldRolesStr, newRolesStr))
-                .build();
+        LoginAudit audit = new LoginAudit();
+        audit.setUser(user);
+        audit.setEventType("ROLE_CHANGE");
+        audit.setIpAddress(ipAddress);
+        audit.setLoginTime(LocalDateTime.now());
+        audit.setLoginStatus(String.format("Roles changed from [%s] to [%s]", oldRolesStr, newRolesStr));
 
         loginAuditRepository.save(audit);
     }

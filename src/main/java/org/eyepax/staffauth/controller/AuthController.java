@@ -1,12 +1,23 @@
 package org.eyepax.staffauth.controller;
 
+import org.eyepax.staffauth.dto.AuthResponse;
+import org.eyepax.staffauth.dto.LoginRequest;
+import org.eyepax.staffauth.dto.SignUpRequest;
+import software.amazon.awssdk.services.cognitoidentityprovider.model.AuthenticationResultType;
+import org.eyepax.staffauth.service.CognitoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -16,15 +27,24 @@ import java.util.Base64;
 import java.util.Map;
 
 @RestController
+@RequestMapping("/api/auth")
+@CrossOrigin(origins = "*")
 public class AuthController {
 
-    private final String clientId = "65ggmh18gfb0rp0878jrtk9rjg";
-    private final String clientSecret = "c0jhldbf269g7k5qlnj0iur2uescau8h5vdck6la6s4amdpo6vb";
-    private final String redirectUri = "http://localhost:3000/callback";
-    private final String tokenEndpoint = "https://eu-north-1exi0aq7ov.auth.eu-north-1.amazoncognito.com/oauth2/token";
+    @Autowired
+    private CognitoService cognitoService;
 
-    @PostMapping("/auth/token")
-    public ResponseEntity<?> exchangeCode(@RequestParam String code) {
+    @Value("${aws.cognito.clientId}")
+    private String clientId;
+    @Value("${aws.cognito.clientSecret}")
+    private String clientSecret;
+    @Value("${aws.cognito.redirectUri}")
+    private String redirectUri;
+    @Value("${aws.cognito.tokenEndpoint}")
+    private String tokenEndpoint;
+
+    @PostMapping("/token")
+    public ResponseEntity<Map<String,Object>> exchangeCode(@RequestParam String code) {
         RestTemplate restTemplate = new RestTemplate();
 
         // Set headers
@@ -44,8 +64,84 @@ public class AuthController {
         HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(body, headers);
 
         // Exchange code for tokens
-        ResponseEntity<Map> response = restTemplate.postForEntity(tokenEndpoint, request, Map.class);
+        @SuppressWarnings("rawtypes")
+        ResponseEntity<Map> rawResponse = restTemplate.postForEntity(tokenEndpoint, request, Map.class);
+        @SuppressWarnings("unchecked")
+        Map<String,Object> bodyMap = (Map<String,Object>) rawResponse.getBody();
+        return ResponseEntity.ok(bodyMap);
+    }
 
-        return ResponseEntity.ok(response.getBody());
+    @PostMapping("/signup")
+    public ResponseEntity<AuthResponse> signUp(@RequestBody SignUpRequest request) {
+        try {
+                cognitoService.signUp(
+                    request.getUsername(),
+                    request.getPassword(),
+                    request.getEmail()
+                );
+            
+            AuthResponse response = new AuthResponse(
+                    true,
+                    "User registered successfully. Please verify your email.",
+                    null, null, null, null
+            );
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            AuthResponse response = new AuthResponse(
+                    false,
+                    e.getMessage(),
+                    null, null, null, null
+            );
+            return ResponseEntity.badRequest().body(response);
+        }
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request) {
+        try {
+            AuthenticationResultType authResult = cognitoService.signIn(
+                    request.getUsername(),
+                    request.getPassword()
+            );
+
+                AuthResponse response = new AuthResponse(
+                    true,
+                    "Login successful",
+                    authResult.accessToken(),
+                    authResult.refreshToken(),
+                    authResult.idToken(),
+                    authResult.expiresIn()
+                );
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            AuthResponse response = new AuthResponse(
+                    false,
+                    e.getMessage(),
+                    null, null, null, null
+            );
+            return ResponseEntity.badRequest().body(response);
+        }
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<AuthResponse> logout(@RequestHeader("Authorization") String token) {
+        try {
+            String accessToken = token.replace("Bearer ", "");
+            cognitoService.signOut(accessToken);
+            
+            AuthResponse response = new AuthResponse(
+                    true,
+                    "Logged out successfully",
+                    null, null, null, null
+            );
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            AuthResponse response = new AuthResponse(
+                    false,
+                    e.getMessage(),
+                    null, null, null, null
+            );
+            return ResponseEntity.badRequest().body(response);
+        }
     }
 }
