@@ -6,7 +6,9 @@ import java.util.Map;
 
 import org.eyepax.staffauth.dto.AuthResponse;
 import org.eyepax.staffauth.dto.LoginRequest;
+import org.eyepax.staffauth.dto.ResendCodeRequest;
 import org.eyepax.staffauth.dto.SignUpRequest;
+import org.eyepax.staffauth.dto.VerifyEmailRequest;
 import org.eyepax.staffauth.service.CognitoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -38,13 +40,13 @@ public class AuthController {
     @Value("${aws.cognito.clientId}")
     private String clientId;
     
-    @Value("${aws.cognito.clientSecret}")
+    @Value("${aws.cognito.clientSecret:}")  // Optional - empty default
     private String clientSecret;
     
-    @Value("${aws.cognito.redirectUri}")
+    @Value("${aws.cognito.redirectUri:}")
     private String redirectUri;
     
-    @Value("${aws.cognito.tokenEndpoint}")
+    @Value("${aws.cognito.tokenEndpoint:}")
     private String tokenEndpoint;
 
     @PostMapping("/token")
@@ -172,6 +174,57 @@ public class AuthController {
             return ResponseEntity.badRequest().body(response);
         }
     }
+
+    @PostMapping("/verify")
+    public ResponseEntity<AuthResponse> verifyEmail(@RequestBody VerifyEmailRequest request) {
+        try {
+            System.out.println("========================================");
+            System.out.println("Verify Email Request");
+            System.out.println("Username: " + request.getUsername());
+            System.out.println("========================================");
+            
+            cognitoService.confirmSignUp(request.getUsername(), request.getCode());
+            
+            AuthResponse response = new AuthResponse(
+                    true,
+                    "Email verified successfully! You can now sign in.",
+                    null, null, null, null
+            );
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            System.err.println("Verification failed: " + e.getMessage());
+            AuthResponse response = new AuthResponse(
+                    false,
+                    e.getMessage(),
+                    null, null, null, null
+            );
+            return ResponseEntity.badRequest().body(response);
+        }
+    }
+
+    @PostMapping("/resend-code")
+    public ResponseEntity<AuthResponse> resendCode(@RequestBody ResendCodeRequest request) {
+        try {
+            cognitoService.resendConfirmationCode(request.getUsername());
+            
+            AuthResponse response = new AuthResponse(
+                    true,
+                    "Verification code resent successfully",
+                    null, null, null, null
+            );
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            AuthResponse response = new AuthResponse(
+                    false,
+                    e.getMessage(),
+                    null, null, null, null
+            );
+            return ResponseEntity.badRequest().body(response);
+        }
+    }
+
 
     @PostMapping("/logout")
     public ResponseEntity<AuthResponse> logout(@RequestHeader("Authorization") String token) {
