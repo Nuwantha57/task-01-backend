@@ -19,10 +19,14 @@ import software.amazon.awssdk.services.cognitoidentityprovider.CognitoIdentityPr
 import software.amazon.awssdk.services.cognitoidentityprovider.model.AttributeType;
 import software.amazon.awssdk.services.cognitoidentityprovider.model.AuthFlowType;
 import software.amazon.awssdk.services.cognitoidentityprovider.model.AuthenticationResultType;
+import software.amazon.awssdk.services.cognitoidentityprovider.model.CodeMismatchException;
+import software.amazon.awssdk.services.cognitoidentityprovider.model.ConfirmSignUpRequest;
+import software.amazon.awssdk.services.cognitoidentityprovider.model.ExpiredCodeException;
 import software.amazon.awssdk.services.cognitoidentityprovider.model.GlobalSignOutRequest;
 import software.amazon.awssdk.services.cognitoidentityprovider.model.InitiateAuthRequest;
 import software.amazon.awssdk.services.cognitoidentityprovider.model.InitiateAuthResponse;
 import software.amazon.awssdk.services.cognitoidentityprovider.model.NotAuthorizedException;
+import software.amazon.awssdk.services.cognitoidentityprovider.model.ResendConfirmationCodeRequest;
 import software.amazon.awssdk.services.cognitoidentityprovider.model.SignUpRequest;
 import software.amazon.awssdk.services.cognitoidentityprovider.model.SignUpResponse;
 import software.amazon.awssdk.services.cognitoidentityprovider.model.UserNotConfirmedException;
@@ -130,6 +134,42 @@ public class CognitoService {
             throw new RuntimeException(e.getMessage());
         }
     }
+
+    public void confirmSignUp(String username, String code) {
+        try {
+            ConfirmSignUpRequest confirmRequest = ConfirmSignUpRequest.builder()
+                .clientId(clientId)
+                .username(username)
+                .confirmationCode(code)
+                .build();
+
+            cognitoClient.confirmSignUp(confirmRequest);
+            System.out.println("✓ Email verified successfully");
+            
+        } catch (CodeMismatchException e) {
+            throw new RuntimeException("Invalid verification code");
+        } catch (ExpiredCodeException e) {
+            throw new RuntimeException("Verification code has expired");
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
+
+    public void resendConfirmationCode(String username) {
+        try {
+            ResendConfirmationCodeRequest request = ResendConfirmationCodeRequest.builder()
+                .clientId(clientId)
+                .username(username)
+                .build();
+
+            cognitoClient.resendConfirmationCode(request);
+            System.out.println("✓ Confirmation code resent");
+            
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
+
 
     public AuthenticationResultType signIn(String username, String password) {
         try {

@@ -52,6 +52,9 @@ public class SecurityConfig {
                         .requestMatchers("/auth/**").permitAll()
                         .requestMatchers("/api/auth/**").permitAll()  // Android sign-in/sign-up
                         .requestMatchers("/api/v1/token-debug").permitAll()
+                        .requestMatchers("/api/auth/verify").permitAll()      // Email verification
+                        .requestMatchers("/api/auth/resend-code").permitAll() // Resend code
+
                         
                         // Admin endpoints
                         .requestMatchers("/api/v1/admin/**").hasAnyRole("ADMIN")
