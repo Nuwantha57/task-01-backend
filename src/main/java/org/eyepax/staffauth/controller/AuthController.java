@@ -38,13 +38,13 @@ public class AuthController {
     @Value("${aws.cognito.clientId}")
     private String clientId;
     
-    @Value("${aws.cognito.clientSecret}")
+    @Value("${aws.cognito.clientSecret:}")  // Optional - empty default
     private String clientSecret;
     
-    @Value("${aws.cognito.redirectUri}")
+    @Value("${aws.cognito.redirectUri:}")
     private String redirectUri;
     
-    @Value("${aws.cognito.tokenEndpoint}")
+    @Value("${aws.cognito.tokenEndpoint:}")
     private String tokenEndpoint;
 
     @PostMapping("/token")
