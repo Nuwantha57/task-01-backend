@@ -55,6 +55,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/auth/verify").permitAll()      // Email verification
                         .requestMatchers("/api/auth/resend-code").permitAll() // Resend code
 
+                        .requestMatchers("/api/payments/adyen/config").permitAll()  // Adyen config endpoint
                         
                         // Admin endpoints
                         .requestMatchers("/api/v1/admin/**").hasAnyRole("ADMIN")

@@ -92,7 +92,6 @@
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>5.4.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -123,6 +122,13 @@
             <groupId>software.amazon.awssdk</groupId>
             <artifactId>cognitoidentityprovider</artifactId>
             <version>2.20.0</version>
+        </dependency>
+
+        <!-- Adyen Java API Library -->
+        <dependency>
+            <groupId>com.adyen</groupId>
+            <artifactId>adyen-java-api-library</artifactId>
+            <version>21.0.0</version>
         </dependency>
 
     </dependencies>
