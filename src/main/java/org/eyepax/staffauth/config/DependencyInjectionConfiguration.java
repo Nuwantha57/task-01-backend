@@ -1,5 +1,7 @@
 package org.eyepax.staffauth.config;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,6 +12,8 @@ import com.adyen.service.checkout.PaymentsApi;
 
 @Configuration
 public class DependencyInjectionConfiguration {
+
+    private static final Logger logger = LoggerFactory.getLogger(DependencyInjectionConfiguration.class);
 
     private final ApplicationConfiguration applicationConfiguration;
 
@@ -28,6 +32,10 @@ public class DependencyInjectionConfiguration {
             );
         }
 
+        logger.info("Initializing Adyen Client with environment: {}", env);
+        logger.debug("API Key starts with: {}", apiKey.substring(0, Math.min(10, apiKey.length())));
+        logger.debug("API Key length: {}", apiKey.length());
+
         Environment environment = "live".equalsIgnoreCase(env)
                 ? Environment.LIVE
                 : Environment.TEST;
@@ -37,11 +45,20 @@ public class DependencyInjectionConfiguration {
         config.setApiKey(apiKey);
         config.setEnvironment(environment);
         
+        logger.info("Adyen Client initialized successfully with environment: {}", environment);
         return new Client(config);
     }
 
     @Bean
     public PaymentsApi adyenPaymentsApi(Client adyenClient) {
-        return new PaymentsApi(adyenClient);
+        try {
+            logger.info("Creating PaymentsApi instance...");
+            PaymentsApi api = new PaymentsApi(adyenClient);
+            logger.info("PaymentsApi created successfully");
+            return api;
+        } catch (Exception e) {
+            logger.error("Failed to create PaymentsApi: {}", e.getMessage(), e);
+            throw new IllegalStateException("Failed to initialize PaymentsApi", e);
+        }
     }
 }

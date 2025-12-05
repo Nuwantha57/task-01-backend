@@ -5,6 +5,8 @@ import java.io.IOException;
 import org.eyepax.staffauth.dto.PaymentDetailsRequestDto;
 import org.eyepax.staffauth.dto.PaymentRequestDto;
 import org.eyepax.staffauth.dto.PaymentResponseDto;
+import org.eyepax.staffauth.dto.SessionRequestDto;
+import org.eyepax.staffauth.dto.SessionResponseDto;
 import org.eyepax.staffauth.service.AdyenPaymentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -114,5 +116,38 @@ public class AdyenPaymentController {
         }
     }
 
+
+        /**
+     * Create a payment session
+     * POST /api/payments/adyen/sessions
+     */
+    @PostMapping("/sessions")
+    public ResponseEntity<?> createSession(@RequestBody SessionRequestDto request) {
+        try {
+            logger.info("Received session creation request for reference: {}", request.getReference());
+
+            SessionResponseDto response = adyenPaymentService.createSession(request);
+
+            return ResponseEntity.ok(response);
+
+        } catch (ApiException e) {
+            logger.error("Adyen API error: {}", e.getMessage(), e);
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(new ErrorResponse("Adyen API error: " + e.getMessage()));
+
+        } catch (IOException e) {
+            logger.error("IO error calling Adyen: {}", e.getMessage(), e);
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ErrorResponse("Session creation error"));
+
+        } catch (Exception e) {
+            logger.error("Unexpected error: {}", e.getMessage(), e);
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ErrorResponse("Internal server error"));
+        }
+    }
 
 }

@@ -7,12 +7,16 @@ import org.eyepax.staffauth.config.ApplicationConfiguration;
 import org.eyepax.staffauth.dto.PaymentDetailsRequestDto;
 import org.eyepax.staffauth.dto.PaymentRequestDto;
 import org.eyepax.staffauth.dto.PaymentResponseDto;
+import org.eyepax.staffauth.dto.SessionRequestDto;
+import org.eyepax.staffauth.dto.SessionResponseDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.CheckoutPaymentMethod;
+import com.adyen.model.checkout.CreateCheckoutSessionRequest;
+import com.adyen.model.checkout.CreateCheckoutSessionResponse;
 import com.adyen.model.checkout.PaymentCompletionDetails;
 import com.adyen.model.checkout.PaymentDetailsRequest;
 import com.adyen.model.checkout.PaymentDetailsResponse;
@@ -197,5 +201,78 @@ public class AdyenPaymentService {
         // If there are additional actions needed, they would be handled differently
 
         return dto;
-    }  
+    }
+    
+
+    /**
+     * Create a payment session
+     */
+    public SessionResponseDto createSession(SessionRequestDto request) throws IOException, ApiException {
+
+        try{
+        // Build Adyen CreateCheckoutSessionRequest
+        CreateCheckoutSessionRequest sessionRequest = new CreateCheckoutSessionRequest();
+
+        // Amount
+        Amount amount = new Amount()
+                .currency(request.getAmount().getCurrency())
+                .value(request.getAmount().getValue());
+        sessionRequest.setAmount(amount);
+
+        // Merchant Account
+        sessionRequest.setMerchantAccount(config.getAdyenMerchantAccount());
+
+        // Reference
+        sessionRequest.setReference(request.getReference());
+
+        // Return URL
+        sessionRequest.setReturnUrl(request.getReturnUrl());
+
+        // Country Code
+        sessionRequest.setCountryCode(request.getCountryCode() != null ? request.getCountryCode() : "US");
+
+        // Shopper Reference
+        if (request.getShopperReference() != null) {
+            sessionRequest.setShopperReference(request.getShopperReference());
+        }
+
+        // Shopper Email
+        if (request.getShopperEmail() != null) {
+            sessionRequest.setShopperEmail(request.getShopperEmail());
+        }
+
+        // Channel
+        sessionRequest.setChannel(CreateCheckoutSessionRequest.ChannelEnum.ANDROID);
+
+        logger.debug("Calling Adyen /sessions API...");
+        logger.debug("Session Request Details:");
+        logger.debug("  - Merchant Account: {}", sessionRequest.getMerchantAccount());
+        logger.debug("  - Reference: {}", sessionRequest.getReference());
+        logger.debug("  - Amount: {} {}", sessionRequest.getAmount().getValue(), sessionRequest.getAmount().getCurrency());
+        logger.debug("  - Return URL: {}", sessionRequest.getReturnUrl());
+        logger.debug("  - Country Code: {}", sessionRequest.getCountryCode());
+        logger.debug("  - Channel: {}", sessionRequest.getChannel());
+
+        // Call Adyen using PaymentsApi
+        CreateCheckoutSessionResponse sessionResponse = paymentsApi.sessions(sessionRequest);
+
+        logger.info("Adyen session created - sessionId: {}", sessionResponse.getId());
+
+        // Map to DTO
+        SessionResponseDto dto = new SessionResponseDto();
+        dto.setId(sessionResponse.getId());
+        dto.setSessionData(sessionResponse.getSessionData());
+
+        return dto;
+        } catch (ApiException e){
+            logger.error("Adyen API Exception Details:");
+            logger.error("  Status Code: {}", e.getStatusCode());
+            logger.error("  Error Message: {}", e.getMessage());
+            logger.error("  Error: {}", e.getError());
+            logger.error("  Response Body: {}", e.getResponseBody());
+            throw e;
+        }
+        
+    }
+
 } 
