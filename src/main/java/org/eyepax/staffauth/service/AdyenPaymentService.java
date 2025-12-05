@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Map;
 
 import org.eyepax.staffauth.config.ApplicationConfiguration;
+import org.eyepax.staffauth.dto.PaymentDetailsRequestDto;
 import org.eyepax.staffauth.dto.PaymentRequestDto;
 import org.eyepax.staffauth.dto.PaymentResponseDto;
 import org.slf4j.Logger;
@@ -12,11 +13,15 @@ import org.springframework.stereotype.Service;
 
 import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.CheckoutPaymentMethod;
+import com.adyen.model.checkout.PaymentCompletionDetails;
+import com.adyen.model.checkout.PaymentDetailsRequest;
+import com.adyen.model.checkout.PaymentDetailsResponse;
 import com.adyen.model.checkout.PaymentRequest;
 import com.adyen.model.checkout.PaymentResponse;
 import com.adyen.service.checkout.PaymentsApi;
 import com.adyen.service.exception.ApiException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 @Service
 public class AdyenPaymentService {
@@ -143,4 +148,54 @@ public class AdyenPaymentService {
 
         return dto;
     }
-}
+
+    /**
+     * Submit additional payment details (for 3DS completion)
+     */
+    public PaymentResponseDto submitPaymentDetails(PaymentDetailsRequestDto request) throws IOException, ApiException {
+        logger.info("Submitting payment details...");
+
+        // Build Adyen PaymentDetailsRequest
+        PaymentDetailsRequest detailsRequest = new PaymentDetailsRequest();
+        
+        // Convert Map to PaymentCompletionDetails using ObjectMapper
+        PaymentCompletionDetails completionDetails = objectMapper.convertValue(
+                request.getDetails(), 
+                PaymentCompletionDetails.class
+        );
+        detailsRequest.setDetails(completionDetails);
+        detailsRequest.setPaymentData(request.getPaymentData());
+
+        logger.debug("Calling Adyen /payments/details API...");
+
+        // Call Adyen using paymentsApi
+        PaymentDetailsResponse detailsResponse = paymentsApi.paymentsDetails(detailsRequest);
+
+        logger.info("Adyen details response - resultCode: {}, pspReference: {}",
+                detailsResponse.getResultCode(),
+                detailsResponse.getPspReference());
+
+        // Map to DTO (reuse same mapper since response structure is similar)
+        return mapDetailsToResponseDto(detailsResponse);
+    }
+
+    /**
+     * Map Adyen PaymentDetailsResponse to our DTO
+     */
+    private PaymentResponseDto mapDetailsToResponseDto(PaymentDetailsResponse response) {
+        PaymentResponseDto dto = new PaymentResponseDto();
+
+        dto.setResultCode(response.getResultCode().getValue());
+        dto.setPspReference(response.getPspReference());
+
+        if (response.getRefusalReason() != null) {
+            dto.setRefusalReason(response.getRefusalReason());
+        }
+
+        // PaymentDetailsResponse doesn't have getAction() method
+        // Actions are typically only in the initial payment response
+        // If there are additional actions needed, they would be handled differently
+
+        return dto;
+    }  
+} 

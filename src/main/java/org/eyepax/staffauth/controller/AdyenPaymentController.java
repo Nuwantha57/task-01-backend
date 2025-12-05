@@ -2,6 +2,7 @@ package org.eyepax.staffauth.controller;
 
 import java.io.IOException;
 
+import org.eyepax.staffauth.dto.PaymentDetailsRequestDto;
 import org.eyepax.staffauth.dto.PaymentRequestDto;
 import org.eyepax.staffauth.dto.PaymentResponseDto;
 import org.eyepax.staffauth.service.AdyenPaymentService;
@@ -79,4 +80,39 @@ public class AdyenPaymentController {
             this.error = error;
         }
     }
+
+        /**
+     * Submit payment details (for 3DS completion)
+     * POST /api/payments/adyen/details
+     */
+    @PostMapping("/details")
+    public ResponseEntity<?> submitPaymentDetails(@RequestBody PaymentDetailsRequestDto request) {
+        try {
+            logger.info("Received payment details submission");
+
+            PaymentResponseDto response = adyenPaymentService.submitPaymentDetails(request);
+
+            return ResponseEntity.ok(response);
+
+        } catch (ApiException e) {
+            logger.error("Adyen API error: {}", e.getMessage(), e);
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(new ErrorResponse("Adyen API error: " + e.getMessage()));
+
+        } catch (IOException e) {
+            logger.error("IO error calling Adyen: {}", e.getMessage(), e);
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ErrorResponse("Payment processing error"));
+
+        } catch (Exception e) {
+            logger.error("Unexpected error: {}", e.getMessage(), e);
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ErrorResponse("Internal server error"));
+        }
+    }
+
+
 }
